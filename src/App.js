@@ -6,7 +6,9 @@ class App extends React.Component {
 	render() {
 		return (
 			<BrowserRouter>
-				<Route path="/" />
+				<Route path="/" exact component={} />
+				<Route path="/signup" exact component={} />
+				<Route path="/login" exact component={} />
 			</BrowserRouter>
 		);
 	}
