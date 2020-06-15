@@ -18,3 +18,21 @@ const getCookie = cookieName => {
 export const setUser = user => {
 	return { type: "SET_USER", payload: user };
 };
+
+export const login = state => {
+	return dispatch => {
+		return axios.post("/login", state).then(resp => {
+			if (resp.data.user) {
+				dispatch(setUser(resp.data.user));
+			} else {
+				dispatch(setUser("@@INIT"));
+			}
+		});
+	};
+};
+
+export const logout = () => {
+	return dispatch => {
+		dispatch({ type: "LOGOUT" });
+	};
+};
