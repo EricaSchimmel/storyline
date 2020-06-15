@@ -7,6 +7,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3001";
 axios.defaults.xsrfCookieName = "CSRF-TOKEN";
+axios.defaults.xsrfHeaderName = "X-CSRF-Token";
 axios.defaults.withCredentials = true;
 
 ReactDOM.render(
