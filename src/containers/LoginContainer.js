@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom"
+import { connect } from "react-redux";
+
 class LoginContainer extends Component {
 	constructor(props) {
 		super(props);
@@ -14,6 +17,10 @@ class LoginContainer extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
+    }
+
+    handleOnSubmit = event => {
+        event.preventDefault()
     }
 
 	render() {
