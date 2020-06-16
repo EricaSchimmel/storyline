@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom"
+import Errors from "../components/Errors";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class LoginContainer extends Component {
@@ -27,6 +28,7 @@ class LoginContainer extends Component {
 
 	render() {
 		return (
+            <Errors errors={this.state.errors} />
 			<div id="login-container">
 				<form onSubmit={this.handleOnSubmit}>
                     <label>Email</label></br>
@@ -35,6 +37,8 @@ class LoginContainer extends Component {
                     <label>Password</label></br>
                     <input type="password" id="password" onChange={this.handleOnChange} value={this.state.password} /></br>
                 </form>
+
+                <p>New User? <Link to={"/signup"}>Click here to signup!</Link></p>
 			</div>
 		);
 	}

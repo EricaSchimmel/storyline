@@ -10,6 +10,8 @@ const Errors = props => {
             <div id="errors-container">
                 {errors}
             </div>
-        )
+        );
     }
 };
+
+export default Errors;
