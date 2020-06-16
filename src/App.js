@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 
-class App extends React.Component {
+class App extends Component {
 	render() {
 		return (
 			<BrowserRouter>
