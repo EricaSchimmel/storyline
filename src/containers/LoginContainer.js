@@ -20,7 +20,9 @@ class LoginContainer extends Component {
     }
 
     handleOnSubmit = event => {
-        event.preventDefault()
+        event.preventDefault();
+
+        // this.props.login()
     }
 
 	render() {
