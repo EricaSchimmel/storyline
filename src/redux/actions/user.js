@@ -21,9 +21,14 @@ export const setUser = data => {
 
 export const login = state => {
 	return dispatch => {
-		return axios.post("/login", state).then(resp => {
-			dispatch(setUser(resp.data));
-		});
+		return axios
+			.post("/login", state)
+			.then(resp => {
+				resp.json();
+			})
+			.then(data => {
+				setUser(data);
+			});
 	};
 };
 

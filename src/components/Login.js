@@ -11,7 +11,6 @@ class LoginContainer extends Component {
 		this.state = {
 			email: "",
 			password: "",
-			errors: [],
 		};
 	}
 
@@ -31,7 +30,7 @@ class LoginContainer extends Component {
 		};
 
 		this.props.login(user);
-		if (this.state.errors !== []) {
+		if (this.props.errors !== []) {
 			this.render();
 		}
 	};
@@ -39,7 +38,7 @@ class LoginContainer extends Component {
 	render() {
 		return (
 			<div id="login-container">
-				<Errors errors={this.state.errors} />
+				{/* <Errors errors={this.props.errors} /> */}
 				<form onSubmit={this.handleOnSubmit}>
 					<label>Email</label>
 					<br />
@@ -74,11 +73,9 @@ class LoginContainer extends Component {
 	}
 }
 
-// const mapDispatchToProps = dispatch => {
+// const mapStateToProps = state => {
 // 	return {
-// 		login: () => {
-// 			dispatch(login());
-// 		},
+// 		errors: state.errors,
 // 	};
 // };
 
