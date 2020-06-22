@@ -15,18 +15,14 @@ const getCookie = cookieName => {
 	return cookieMatch ? cookieMatch.pop() : "";
 };
 
-export const setUser = user => {
-	return { type: "SET_USER", user };
+export const setUser = data => {
+	return { type: "SET_USER", data };
 };
 
 export const login = state => {
 	return dispatch => {
 		return axios.post("/login", state).then(resp => {
-			if (resp.data.user) {
-				dispatch(setUser(resp.data.user));
-			} else {
-				dispatch(setUser("@@INIT"));
-			}
+			dispatch(setUser(resp.data));
 		});
 	};
 };

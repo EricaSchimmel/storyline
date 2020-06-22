@@ -29,6 +29,8 @@ class LoginContainer extends Component {
 			email,
 			password,
 		};
+
+		this.props.login(user);
 	};
 
 	render() {
@@ -69,12 +71,12 @@ class LoginContainer extends Component {
 	}
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
-		login: () => {
-			dispatch(login());
-		},
-	};
-};
+// const mapDispatchToProps = dispatch => {
+// 	return {
+// 		login: () => {
+// 			dispatch(login());
+// 		},
+// 	};
+// };
 
-export default connect(null, mapDispatchToProps)(LoginContainer);
+export default connect(null, { login })(LoginContainer);
