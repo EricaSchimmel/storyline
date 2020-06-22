@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Errors from "./Errors";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { login } from "../redux/actions/user";
 
 class LoginContainer extends Component {
 	constructor(props) {
@@ -23,7 +24,11 @@ class LoginContainer extends Component {
 	handleOnSubmit = event => {
 		event.preventDefault();
 
-		// this.props.login()
+		const { email, password } = this.state;
+		let user = {
+			email,
+			password,
+		};
 	};
 
 	render() {
@@ -36,6 +41,7 @@ class LoginContainer extends Component {
 					<input
 						type="email"
 						id="email"
+						name="email"
 						onChange={this.handleOnChange}
 						value={this.state.email}
 					/>
@@ -46,6 +52,7 @@ class LoginContainer extends Component {
 					<input
 						type="password"
 						id="password"
+						name="password"
 						onChange={this.handleOnChange}
 						value={this.state.password}
 					/>
@@ -62,8 +69,12 @@ class LoginContainer extends Component {
 	}
 }
 
-// const mapDispatchToProps = dispatch => ({
-//     login:
-// });
+const mapDispatchToProps = dispatch => {
+	return {
+		login: () => {
+			dispatch(login());
+		},
+	};
+};
 
-export default LoginContainer;
+export default connect(null, mapDispatchToProps)(LoginContainer);
