@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-class NavContainer extends Component {
+class Home extends Component {
 	render() {
 		return <div></div>;
 	}
 }
 
-export default NavContainer;
+export default Home;

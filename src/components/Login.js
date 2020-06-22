@@ -31,6 +31,9 @@ class LoginContainer extends Component {
 		};
 
 		this.props.login(user);
+		if (this.state.errors !== []) {
+			this.render();
+		}
 	};
 
 	render() {
