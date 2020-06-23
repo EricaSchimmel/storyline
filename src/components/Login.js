@@ -29,11 +29,14 @@ class LoginContainer extends Component {
 			email,
 			password,
 		};
-		this.props.login(user).then(data => {
-			if (data.errors !== []) {
+
+		this.props.login(user).then(res => {
+			if (res.errors !== []) {
 				this.setState({
-					errors: data.errors,
+					errors: res.data.errors,
 				});
+
+				console.log(this.state.errors);
 			}
 		});
 	};
@@ -75,11 +78,5 @@ class LoginContainer extends Component {
 		);
 	}
 }
-
-// const mapStateToProps = state => {
-// 	return {
-// 		errors: state.errors,
-// 	};
-// };
 
 export default connect(null, { login })(LoginContainer);
