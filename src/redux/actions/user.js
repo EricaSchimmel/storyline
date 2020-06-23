@@ -13,6 +13,15 @@ export const login = state => {
 	};
 };
 
+export const signup = state => {
+	return dispatch => {
+		return axios.post("/signup", state).then(data => {
+			setUser(data);
+			return data;
+		});
+	};
+};
+
 export const logout = () => {
 	return dispatch => {
 		dispatch({ type: "LOGOUT" });
