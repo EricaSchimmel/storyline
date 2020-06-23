@@ -11,6 +11,9 @@ class App extends Component {
 				<Route path="/" exact component={Home} />
 				{/* <Route path="/signup" exact component={} /> */}
 				<Route path="/login" exact component={Login} />
+				{/* <Route path="/dashboard" exact component={} />
+				<Route path="/stories" component={} />
+				<Route path="/characters" component={} /> */}
 			</BrowserRouter>
 		);
 	}
