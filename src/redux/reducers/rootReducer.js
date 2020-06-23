@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import manageUser from "./manageUser";
 
 const rootReducer = combineReducers({
-	user: manageUser,
+	manageUser,
 });
 
 export default rootReducer;

@@ -11,6 +11,7 @@ class LoginContainer extends Component {
 		this.state = {
 			email: "",
 			password: "",
+			errors: [],
 		};
 	}
 
@@ -28,17 +29,19 @@ class LoginContainer extends Component {
 			email,
 			password,
 		};
-
-		this.props.login(user);
-		if (this.props.errors !== []) {
-			this.render();
-		}
+		this.props.login(user).then(data => {
+			if (data.errors !== []) {
+				this.setState({
+					errors: data.errors,
+				});
+			}
+		});
 	};
 
 	render() {
 		return (
 			<div id="login-container">
-				{/* <Errors errors={this.props.errors} /> */}
+				<Errors errors={this.state.errors} />
 				<form onSubmit={this.handleOnSubmit}>
 					<label>Email</label>
 					<br />
