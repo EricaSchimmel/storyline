@@ -13,6 +13,12 @@ class StoryInput extends Component {
 			summary: "",
 		}
 	}
+
+	handleOnChange = event => {
+		this.setState({
+			[event.target.name]: event.target.value,
+		});
+	};
 	
 	render() {
 		return (
