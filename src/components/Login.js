@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../redux/actions/user";
 
-class LoginContainer extends Component {
+class Login extends Component {
 	constructor(props) {
 		super(props);
 
@@ -79,4 +79,4 @@ class LoginContainer extends Component {
 	}
 }
 
-export default connect(null, { login })(LoginContainer);
+export default connect(null, { login })(Login);
