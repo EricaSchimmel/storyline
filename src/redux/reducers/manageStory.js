@@ -11,7 +11,8 @@ export default function manageStory(state = { stories: [] }, action) {
 			return { ...state, stories: [...state.stories, story] };
 
 		case "REMOVE_STORY":
-			break;
+			const stories = state.stories.filter(story => story.id != action.id);
+			return { stories };
 
 		case "ADD_COMMENT":
 			break;
