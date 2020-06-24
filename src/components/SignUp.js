@@ -28,10 +28,7 @@ class SignUp extends Component {
 
 		const { username, email, password, password_confirmation } = this.state;
 		let user = {
-			username,
-			email,
-			password,
-			password_confirmation,
+			user: { username, email, password, password_confirmation },
 		};
 
 		console.log(user);
