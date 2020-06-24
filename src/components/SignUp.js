@@ -23,6 +23,28 @@ class SignUp extends Component {
 		});
 	};
 
+	handleOnSubmit = event => {
+		event.preventDefault();
+
+		const { username, email, password, password_confirmation } = this.state;
+		let user = {
+			username,
+			email,
+			password,
+			password_confirmation,
+		};
+
+		this.props.login(user).then(res => {
+			if (res.errors !== []) {
+				this.setState({
+					errors: res.data.errors,
+				});
+
+				console.log(this.state.errors);
+			}
+		});
+	};
+
 	render() {
 		return (
 			<div id="signup-container">
