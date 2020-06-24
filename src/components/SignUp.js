@@ -34,7 +34,8 @@ class SignUp extends Component {
 			password_confirmation,
 		};
 
-		this.props.login(user).then(res => {
+		console.log(user);
+		this.props.signup(user).then(res => {
 			if (res.errors !== []) {
 				this.setState({
 					errors: res.data.errors,
@@ -60,7 +61,7 @@ class SignUp extends Component {
 						id="username"
 						name="username"
 						onChange={this.handleOnChange}
-						value={this.state.email}
+						value={this.state.username}
 					/>
 					<br />
 
@@ -84,6 +85,7 @@ class SignUp extends Component {
 						onChange={this.handleOnChange}
 						value={this.state.password}
 					/>
+					<br />
 
 					<label>Confirm Password</label>
 					<br />
@@ -108,4 +110,4 @@ class SignUp extends Component {
 	}
 }
 
-export default SignUp;
+export default connect(null, { signup })(SignUp);
