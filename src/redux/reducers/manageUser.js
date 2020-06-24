@@ -10,13 +10,13 @@ export default function manageUser(state = {}, action) {
 				console.log(`Logging in: ${user.username}`);
 				localStorage.setItem("currentUser", JSON.stringify(user));
 
-				return user;
+				return { currentUser: user };
 			}
 			break;
 
 		case "LOGOUT":
 			localStorage.removeItem("currentUser");
-			return {};
+			return { currentUser: {} };
 			break;
 
 		default:
