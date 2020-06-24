@@ -11,3 +11,9 @@ export const addStory = state => {
 		});
 	};
 };
+
+// export const deleteStory = state ={
+//     return dispatch => {
+//         return axios.delete(`/stories/${state.story.id}`);
+//     }
+// }
