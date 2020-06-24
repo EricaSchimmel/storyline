@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Errors from "./Errors";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addCharacter } from "../redux/actions/manageCharacter";
+// import { addCharacter } from "../redux/actions/manageCharacter";
 
 class CharacterInput extends Component {
 	constructor(props) {
@@ -45,7 +45,7 @@ class CharacterInput extends Component {
 						type="number"
 						id="age"
 						name="age"
-						min="1"
+						min="0"
 						onChange={this.handleOnChange}
 						value={this.state.age}
 					/>
