@@ -20,6 +20,8 @@ class SignUp extends Component {
 	render() {
 		return (
 			<div id="signup-container">
+				<h1>Sign Up</h1>
+
 				<Errors errors={this.state.errors} />
 
 				<form onSubmit={this.handleOnSubmit}>
@@ -66,7 +68,7 @@ class SignUp extends Component {
 					/>
 					<br />
 
-					<input type="submit" value="Log In" />
+					<input type="submit" value="Sign Up" />
 				</form>
 
 				<p>

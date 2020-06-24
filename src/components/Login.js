@@ -44,7 +44,10 @@ class Login extends Component {
 	render() {
 		return (
 			<div id="login-container">
+				<h1>Log In</h1>
+
 				<Errors errors={this.state.errors} />
+
 				<form onSubmit={this.handleOnSubmit}>
 					<label>Email</label>
 					<br />
