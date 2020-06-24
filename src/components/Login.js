@@ -71,9 +71,9 @@ class LoginContainer extends Component {
 					<input type="submit" value="Log In" />
 				</form>
 
-				{/* <p>
+				<p>
 					New User? <Link to={"/signup"}>Click here to signup!</Link>
-				</p> */}
+				</p>
 			</div>
 		);
 	}

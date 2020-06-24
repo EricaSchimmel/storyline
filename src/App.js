@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Home from "./components/containers/Home";
 import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 import { BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -9,7 +10,7 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<Route path="/" exact component={Home} />
-				{/* <Route path="/signup" exact component={} /> */}
+				<Route path="/signup" exact component={SignUp} />
 				<Route path="/login" exact component={Login} />
 				{/* <Route path="/dashboard" exact component={} />
 				<Route path="/stories" component={} />
