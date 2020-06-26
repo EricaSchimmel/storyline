@@ -5,8 +5,8 @@ import manageCharacter from "./manageCharacter";
 
 const rootReducer = combineReducers({
 	currentUser: manageUser,
-	stories: manageStory,
-	characters: manageCharacter,
+	userStories: manageStory,
+	userCharacters: manageCharacter,
 });
 
 export default rootReducer;
