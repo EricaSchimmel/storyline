@@ -1,4 +1,7 @@
-export default function manageStory(state = { stories: [] }, action) {
+export default function manageStory(
+	state = { homepage: [], dashboard: [], viewedUser: [] },
+	action
+) {
 	switch (action.type) {
 		case "ADD_STORY":
 			const story = {
@@ -8,11 +11,11 @@ export default function manageStory(state = { stories: [] }, action) {
 				summary: action.summary,
 			};
 
-			return { ...state, stories: [...state.stories, story] };
+			return { ...state, dashboard: [...state.dashboard, story] };
 
 		case "DELETE_STORY":
-			const stories = state.stories.filter(story => story.id !== action.id);
-			return { stories };
+			const stories = state.dashboard.filter(story => story.id !== action.id);
+			return { ...state, dashboard: [stories] };
 
 		case "ADD_COMMENT":
 			break;
