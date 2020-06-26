@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import StoryCard from "./StoryCard";
 import axios from "axios";
 
-class HomeStoryList extends Component {
+class StoryList extends Component {
 	state = {
 		stories: [],
 	};
@@ -29,4 +29,4 @@ class HomeStoryList extends Component {
 	}
 }
 
-export default HomeStoryList;
+export default StoryList;
