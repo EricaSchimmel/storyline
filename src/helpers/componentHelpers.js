@@ -1,14 +1,13 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 
 export const requireLogin = userState => {
 	if (!userState.loggedIn) {
-		return <Redirect to="/login" />;
+		return this.props.history.push("/login");
 	}
 };
 
 export const redirectToHomeWhenLoggedIn = userState => {
 	if (userState.loggedIn) {
-		return <Redirect to="/" />;
+		return this.props.history.push("/");
 	}
 };

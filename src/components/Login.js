@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../redux/actions/user";
 import { redirectToHomeWhenLoggedIn } from "../helpers/componentHelpers";
-import { Redirect } from "react-router-dom";
 
 class Login extends Component {
 	constructor(props) {
@@ -37,12 +36,10 @@ class Login extends Component {
 				this.setState({
 					errors: res.data.errors,
 				});
+			} else {
+				return this.props.history.push("/");
 			}
 		});
-
-		if (this.state.errors === []) {
-			return <Redirect to="/" />;
-		}
 	};
 
 	componentDidMount() {
