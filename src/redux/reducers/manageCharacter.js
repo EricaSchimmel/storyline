@@ -21,9 +21,6 @@ export default function manageCharacter(state = { characters: [] }, action) {
 			);
 			return { ...state, characters: [characters] };
 
-		case "ADD_COMMENT":
-			break;
-
 		default:
 			return state;
 	}
