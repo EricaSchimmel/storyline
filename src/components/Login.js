@@ -42,13 +42,11 @@ class Login extends Component {
 		});
 	};
 
-	componentDidMount() {
-		redirectToHomeWhenLoggedIn(this.props.currentUser);
-	}
-
 	render() {
 		return (
 			<div id="login-container">
+				{redirectToHomeWhenLoggedIn(this.props.currentUser)}
+
 				<h1>Log In</h1>
 
 				<Errors errors={this.state.errors} />
