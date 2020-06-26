@@ -3,6 +3,8 @@ import Errors from "./Errors";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../redux/actions/user";
+import { redirectToHomeWhenLoggedIn } from "../helpers/componentHelpers";
+import { Redirect } from "react-router-dom";
 
 class Login extends Component {
 	constructor(props) {
@@ -31,15 +33,21 @@ class Login extends Component {
 		};
 
 		this.props.login(user).then(res => {
-			if (res.errors !== []) {
+			if (res.data.errors) {
 				this.setState({
 					errors: res.data.errors,
 				});
-
-				console.log(this.state.errors);
 			}
 		});
+
+		if (this.state.errors === []) {
+			return <Redirect to="/" />;
+		}
 	};
+
+	componentDidMount() {
+		redirectToHomeWhenLoggedIn(this.props.currentUser);
+	}
 
 	render() {
 		return (
@@ -82,4 +90,10 @@ class Login extends Component {
 	}
 }
 
-export default connect(null, { login })(Login);
+const mapStateToProps = state => {
+	return {
+		currentUser: state.currentUser,
+	};
+};
+
+export default connect(mapStateToProps, { login })(Login);
