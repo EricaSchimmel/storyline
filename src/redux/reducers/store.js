@@ -4,9 +4,5 @@ import rootReducer from "./rootReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 export default function store() {
-	return createStore(
-		rootReducer,
-		composeWithDevTools(applyMiddleware(thunk))
-		// window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-	);
+	return createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 }

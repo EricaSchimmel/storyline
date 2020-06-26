@@ -3,6 +3,7 @@ import Errors from "./Errors";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signup } from "../redux/actions/user";
+import { redirectToHomeWhenLoggedIn } from "../helpers/componentHelpers";
 
 class SignUp extends Component {
 	constructor(props) {
@@ -31,14 +32,13 @@ class SignUp extends Component {
 			user: { username, email, password, password_confirmation },
 		};
 
-		console.log(user);
 		this.props.signup(user).then(res => {
-			if (res.errors !== []) {
+			if (res.data.errors) {
 				this.setState({
 					errors: res.data.errors,
 				});
-
-				console.log(this.state.errors);
+			} else {
+				return this.props.history.push("/");
 			}
 		});
 	};
@@ -46,6 +46,7 @@ class SignUp extends Component {
 	render() {
 		return (
 			<div id="signup-container">
+				{redirectToHomeWhenLoggedIn(this.props.currentUser)}
 				<h1>Sign Up</h1>
 
 				<Errors errors={this.state.errors} />
@@ -99,11 +100,18 @@ class SignUp extends Component {
 				</form>
 
 				<p>
-					Already have an account? <Link to={"/login"}> Click here to log in!</Link>
+					Already have an account?{" "}
+					<Link to={"/login"}> Click here to log in!</Link>
 				</p>
 			</div>
 		);
 	}
 }
 
-export default connect(null, { signup })(SignUp);
+const mapStateToProps = state => {
+	return {
+		currentUser: state.currentUser,
+	};
+};
+
+export default connect(mapStateToProps, { signup })(SignUp);
