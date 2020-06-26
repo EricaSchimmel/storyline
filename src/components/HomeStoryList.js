@@ -22,7 +22,7 @@ class HomeStoryList extends Component {
 
 	render() {
 		const storyCards = this.state.stories.map(story => {
-			return <StoryCard title={story.title} />;
+			return <StoryCard title={story.title} username={story.user.username} />;
 		});
 
 		return <div>{storyCards}</div>;
