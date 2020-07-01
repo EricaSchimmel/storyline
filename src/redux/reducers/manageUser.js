@@ -10,11 +10,9 @@ export default function manageUser(
 				console.log("Errors found.");
 				return state;
 			} else {
-				// let user = action.user;
 				console.log(action.data.user);
 
 				console.log(`Logging in: ${action.data.user.username}`);
-				// localStorage.setItem("currentUser", JSON.stringify(user));
 
 				return { ...state, user: action.data.user, loggedIn: true };
 			}
