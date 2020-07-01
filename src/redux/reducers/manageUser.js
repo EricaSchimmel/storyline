@@ -1,3 +1,5 @@
+import storage from "redux-persist/lib/storage";
+
 export default function manageUser(
 	state = { user: {}, loggedIn: false },
 	action
@@ -18,7 +20,7 @@ export default function manageUser(
 			}
 
 		case "LOGOUT":
-			localStorage.removeItem("currentUser");
+			storage.removeItem("persist:root");
 			return { ...state, user: {}, loggedIn: false };
 
 		default:
