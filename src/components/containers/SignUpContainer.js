@@ -7,4 +7,10 @@ class SignUpContainer extends Component {
 	}
 }
 
-export default SignUpContainer;
+const mapStateToProps = state => {
+	return {
+		currentUser: state.currentUser,
+	};
+};
+
+export default connect(mapStateToProps)(SignUpContainer);
