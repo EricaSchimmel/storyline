@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import NavBar from "../NavBar";
-import SignUp from "../SignUp";
+import NavBar from "../components/NavBar";
+import SignUp from "../components/SignUp";
 import { connect } from "react-redux";
 
 class SignUpContainer extends Component {

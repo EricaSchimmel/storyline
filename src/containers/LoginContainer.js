@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import NavBar from "../NavBar";
-import Login from "../Login";
+import NavBar from "../components/NavBar";
+import Login from "../components/Login";
+import { login, logout } from "../redux/actions/user";
 import { connect } from "react-redux";
 
 class LoginContainer extends Component {
@@ -20,4 +21,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(LoginContainer);
+export default connect(mapStateToProps, { login, logout })(LoginContainer);

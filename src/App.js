@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./stylesheets/App.css";
-import Home from "./components/containers/Home";
-import LoginContainer from "./components/containers/LoginContainer";
-import SignUpContainer from "./components/containers/SignUpContainer";
+import Home from "./containers/Home";
+import LoginContainer from "./containers/LoginContainer";
+import SignUpContainer from "./containers/SignUpContainer";
 import { BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
