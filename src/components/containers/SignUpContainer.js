@@ -1,9 +1,16 @@
 import React, { Component } from "react";
+import NavBar from "../NavBar";
+import SignUp from "../SignUp";
 import { connect } from "react-redux";
 
 class SignUpContainer extends Component {
 	render() {
-		return <div></div>;
+		return (
+			<div>
+				<NavBar />
+				<SignUp />
+			</div>
+		);
 	}
 }
 

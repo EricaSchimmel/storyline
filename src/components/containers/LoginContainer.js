@@ -7,8 +7,8 @@ class LoginContainer extends Component {
 	render() {
 		return (
 			<div>
-				<NavBar />
-				<Login />
+				<NavBar currentUser={this.props.currentUser} />
+				<Login currentUser={this.props.currentUser} />
 			</div>
 		);
 	}
