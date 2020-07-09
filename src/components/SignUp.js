@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Errors from "./Errors";
 import { Link } from "react-router-dom";
-import { redirectToHomeWhenLoggedIn } from "../helpers/componentHelpers";
 
 class SignUp extends Component {
 	constructor(props) {
@@ -44,7 +43,6 @@ class SignUp extends Component {
 	render() {
 		return (
 			<div id="signup-container">
-				{redirectToHomeWhenLoggedIn(this.props.currentUser)}
 				<h1>Sign Up</h1>
 
 				<Errors errors={this.state.errors} />
