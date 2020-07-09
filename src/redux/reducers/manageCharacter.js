@@ -1,5 +1,22 @@
-export default function manageCharacter(state = { characters: [] }, action) {
+export default function manageCharacter(
+	state = { characters: [], loading: false },
+	action
+) {
 	switch (action.type) {
+		case "LOADING_CHARACTERS":
+			return {
+				...state,
+				characters: [...state.characters],
+				loading: true,
+			};
+
+		case "ADD_CHARACTERS":
+			return {
+				...state,
+				characters: action.characters,
+				loading: false,
+			};
+
 		case "ADD_CHARACTER":
 			const character = {
 				id: action.id,

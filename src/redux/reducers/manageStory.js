@@ -1,5 +1,22 @@
-export default function manageStory(state = { stories: [] }, action) {
+export default function manageStory(
+	state = { stories: [], loading: false },
+	action
+) {
 	switch (action.type) {
+		case "LOADING_STORIES":
+			return {
+				...state,
+				stories: [...state.stories],
+				loading: true,
+			};
+
+		case "ADD_STORIES":
+			return {
+				...state,
+				stories: action.stories,
+				loading: false,
+			};
+
 		case "ADD_STORY":
 			const story = {
 				id: action.id,
