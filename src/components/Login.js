@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Errors from "./Errors";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { login } from "../redux/actions/user";
 import { redirectToHomeWhenLoggedIn } from "../helpers/componentHelpers";
 
 class Login extends Component {
@@ -85,10 +83,4 @@ class Login extends Component {
 	}
 }
 
-// const mapStateToProps = state => {
-// 	return {
-// 		currentUser: state.currentUser,
-// 	};
-// };
-
-export default connect(null, { login })(Login);
+export default Login;

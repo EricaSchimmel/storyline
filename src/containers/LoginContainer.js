@@ -8,8 +8,11 @@ class LoginContainer extends Component {
 	render() {
 		return (
 			<div>
-				<NavBar currentUser={this.props.currentUser} />
-				<Login currentUser={this.props.currentUser} />
+				<NavBar
+					currentUser={this.props.currentUser}
+					logout={this.props.logout}
+				/>
+				<Login currentUser={this.props.currentUser} login={this.props.login} />
 			</div>
 		);
 	}

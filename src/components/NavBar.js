@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { logout } from "../redux/actions/user";
 
 class NavBar extends Component {
 	renderLogLinks = () => {
@@ -43,10 +41,4 @@ class NavBar extends Component {
 	}
 }
 
-// const mapStateToProps = state => {
-// 	return {
-// 		currentUser: state.currentUser,
-// 	};
-// };
-
-export default connect(null, { logout })(NavBar);
+export default NavBar;
