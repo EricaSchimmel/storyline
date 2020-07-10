@@ -1,11 +1,13 @@
+import history from "../modules/history";
+
 export const requireLogin = userState => {
 	if (!userState.loggedIn) {
-		return this.props.history.push("/login");
+		return history.push("/login");
 	}
 };
 
 export const redirectToHomeWhenLoggedIn = userState => {
 	if (userState.loggedIn) {
-		return this.props.history.push("/");
+		return history.push("/");
 	}
 };
