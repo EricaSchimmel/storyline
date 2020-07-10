@@ -24,6 +24,8 @@ export const signup = state => {
 
 export const logout = () => {
 	return dispatch => {
-		dispatch({ type: "LOGOUT" });
+		return axios.delete("/logout").then(() => {
+			dispatch({ type: "LOGOUT" });
+		});
 	};
 };

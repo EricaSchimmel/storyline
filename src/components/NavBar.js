@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 class NavBar extends Component {
 	handleOnLogout = () => {
-		this.props.logout.then(() => {
+		this.props.logout().then(() => {
 			this.props.history.push("/");
 		});
 	};
