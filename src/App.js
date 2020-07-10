@@ -28,6 +28,7 @@ class App extends Component {
 				{/* <Route path="/stories/:id/edit" component={} /> */}
 
 				{/* Characters */}
+				{/* <Route path="/characters/:id" component={} /> */}
 				{/* <Route path="/stories/:story_id/characters/new" component={} /> */}
 				{/* <Route path="/characters/:id/edit" component={} /> */}
 			</Router>
