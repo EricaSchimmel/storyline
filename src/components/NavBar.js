@@ -2,12 +2,18 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class NavBar extends Component {
+	handleOnLogout = () => {
+		this.props.logout.then(() => {
+			this.props.history.push("/");
+		});
+	};
+
 	renderLogLinks = () => {
 		if (this.props.currentUser.loggedIn) {
 			return (
 				<>
 					<li>
-						<button onClick={this.props.logout}>Log Out</button>
+						<button onClick={this.handleOnLogout}>Log Out</button>
 					</li>
 				</>
 			);
