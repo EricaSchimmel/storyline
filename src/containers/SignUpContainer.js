@@ -15,7 +15,6 @@ class SignUpContainer extends Component {
 				<NavBar
 					currentUser={this.props.currentUser}
 					logout={this.props.logout}
-					history={history}
 				/>
 				<SignUp
 					currentUser={this.props.currentUser}
