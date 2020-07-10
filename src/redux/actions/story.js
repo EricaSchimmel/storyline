@@ -12,6 +12,10 @@ export const addStory = state => {
 	};
 };
 
+export const updateStory = state => {
+	return axios.patch(`/stories/${state.story.id}`);
+};
+
 // export const deleteStory = state ={
 //     return dispatch => {
 //         return axios.delete(`/stories/${state.story.id}`);
