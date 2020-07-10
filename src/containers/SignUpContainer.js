@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import SignUp from "../components/SignUp";
 
 import history from "../modules/history";
+import { redirectToHomeWhenLoggedIn } from "../helpers/componentHelpers";
 
 import { signup, logout } from "../redux/actions/user";
 import { connect } from "react-redux";
@@ -12,6 +13,8 @@ class SignUpContainer extends Component {
 	render() {
 		return (
 			<div>
+				{redirectToHomeWhenLoggedIn(this.props.currentUser)}
+
 				<NavBar
 					currentUser={this.props.currentUser}
 					logout={this.props.logout}
