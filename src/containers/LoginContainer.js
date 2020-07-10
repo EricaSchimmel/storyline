@@ -15,7 +15,6 @@ class LoginContainer extends Component {
 				<NavBar
 					currentUser={this.props.currentUser}
 					logout={this.props.logout}
-					history={history}
 				/>
 				<Login
 					currentUser={this.props.currentUser}
