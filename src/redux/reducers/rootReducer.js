@@ -5,6 +5,7 @@ import storage from "redux-persist/lib/storage";
 import manageUser from "./manageUser";
 import manageStory from "./manageStory";
 import manageCharacter from "./manageCharacter";
+import viewedStory from "./viewedStory";
 
 const persistConfig = {
 	key: "root",
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
 	currentUser: manageUser,
 	storyIndex: manageStory,
 	characterIndex: manageCharacter,
+	viewedStory,
 });
 
 export default persistReducer(persistConfig, rootReducer);
