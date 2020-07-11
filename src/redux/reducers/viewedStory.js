@@ -1,5 +1,11 @@
 export default function viewedStory(
-	state = { story: {}, comments: [], canComment: false, loading: false },
+	state = {
+		story: {},
+		characters: [],
+		comments: [],
+		canComment: false,
+		loading: false,
+	},
 	action
 ) {
 	switch (action.type) {
@@ -7,6 +13,7 @@ export default function viewedStory(
 			return {
 				...state,
 				story: { ...state.story },
+				characters: [...state.characters],
 				comments: [...state.comments],
 				canComment: state.canComment,
 				loading: true,
@@ -16,6 +23,7 @@ export default function viewedStory(
 			return {
 				...state,
 				story: action.data.story,
+				characters: action.data.characters,
 				comments: action.data.comments,
 				canComment: action.data.canComment,
 				loading: false,
