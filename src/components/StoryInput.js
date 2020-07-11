@@ -1,17 +1,15 @@
 import React, { Component } from "react";
-mport React, { Component } from "react";
 import Errors from "./Errors";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { addStory } from "../redux/actions/manageStory";
 
 class StoryInput extends Component {
 	constructor(props) {
-		super(props)
+		super(props);
+
 		this.state = {
 			title: "",
 			summary: "",
-		}
+			errors: [],
+		};
 	}
 
 	handleOnChange = event => {
@@ -19,35 +17,57 @@ class StoryInput extends Component {
 			[event.target.name]: event.target.value,
 		});
 	};
-	
+
+	handleOnSubmit = event => {
+		event.preventDefault();
+
+		const { title, summary } = this.state;
+
+		let story = {
+			story: { title, summary },
+		};
+
+		this.props.action(story).then(res => {
+			if (res.data.errors) {
+				this.setState({
+					errors: res.data.errors,
+				});
+			} else {
+				return this.props.history.push("/");
+			}
+		});
+	};
+
 	render() {
 		return (
-		<div>
-			<form>
-				<label>Title</label>
-				<br />
-				<input
-					type="text"
-					id="title"
-					name="title"
-					onChange={this.handleOnChange}
-					value={this.state.title}
-				/>
-				<br />
+			<div>
+				<Errors errors={this.state.errors} />
 
-				<label>Summary</label>
-				<br />
-				<textarea
-					name="summary"
-					id="summary"
-					onChange={this.handleOnChange}
-					value={this.state.summary}
-				/>
-				<br />
+				<form onSubmit={this.handleOnSubmit}>
+					<label>Title</label>
+					<br />
+					<input
+						type="text"
+						id="title"
+						name="title"
+						onChange={this.handleOnChange}
+						value={this.state.title}
+					/>
+					<br />
 
-				<input type="submit" value="Submit Story" />
-			</form>
-		</div>
+					<label>Summary</label>
+					<br />
+					<textarea
+						name="summary"
+						id="summary"
+						onChange={this.handleOnChange}
+						value={this.state.summary}
+					/>
+					<br />
+
+					<input type="submit" value="Submit Story" />
+				</form>
+			</div>
 		);
 	}
 }
