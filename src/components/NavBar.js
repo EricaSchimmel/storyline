@@ -13,7 +13,9 @@ class NavBar extends Component {
 			return (
 				<>
 					<li>
-						<Link to={"/dashboard"}>{this.props.currentUser.username}</Link>
+						<Link to={"/dashboard"}>
+							{this.props.currentUser.user.username}
+						</Link>
 					</li>
 
 					<li>

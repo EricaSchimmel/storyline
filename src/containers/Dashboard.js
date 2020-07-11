@@ -21,7 +21,9 @@ class Dashboard extends Component {
 					history={history}
 				/>
 
-				<h1>Welcome to your homepage, {this.props.currentUser}!</h1>
+				<h1>
+					Welcome to your homepage, {this.props.currentUser.user.username}!
+				</h1>
 				<h2>What would you like to do?</h2>
 
 				<h3>
