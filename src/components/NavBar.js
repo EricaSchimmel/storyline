@@ -13,6 +13,10 @@ class NavBar extends Component {
 			return (
 				<>
 					<li>
+						<Link to={"/dashboard"}>{this.props.currentUser.username}</Link>
+					</li>
+
+					<li>
 						<button onClick={this.handleOnLogout}>Log Out</button>
 					</li>
 				</>
