@@ -36,6 +36,7 @@ export const addComment = state => {
 
 export const fetchIndexStories = () => {
 	return dispatch => {
+		dispatch({ type: "LOADING_STORIES" });
 		return axios.get("/stories").then(data => {
 			addStories(data);
 		});
@@ -44,6 +45,7 @@ export const fetchIndexStories = () => {
 
 export const fetchUserStories = user => {
 	return dispatch => {
+		dispatch({ type: "LOADING_STORIES" });
 		return axios.get(`/stories/${user.id}`).then(data => {
 			addStories(data);
 		});
