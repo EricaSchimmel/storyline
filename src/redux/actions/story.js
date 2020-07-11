@@ -1,10 +1,10 @@
 import axios from "axios";
 
-export const createStory = data => {
+export const addStory = data => {
 	return { type: "ADD_STORY", data };
 };
 
-export const addStory = state => {
+export const createStory = state => {
 	return dispatch => {
 		return axios.post("/stories", state).then(data => {
 			createStory(data);
@@ -27,6 +27,22 @@ export const addComment = state => {
 			.then(data => {
 				createComment(data);
 			});
+	};
+};
+
+export const fetchIndexStories = () => {
+	return dispatch => {
+		return axios.get("/stories").then(data => {
+			addStory(data);
+		});
+	};
+};
+
+export const fetchUserStories = user => {
+	return dispatch => {
+		return axios.get(`/stories/${user.id}`).then(data => {
+			addStory(data);
+		});
 	};
 };
 
