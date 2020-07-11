@@ -35,6 +35,7 @@ export default function viewedStory(
 				comments: [...state.comments, comment],
 			};
 
-			break;
+		default:
+			return state;
 	}
 }

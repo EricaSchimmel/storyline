@@ -8,7 +8,16 @@ import { logout } from "../redux/actions/user";
 import { connect } from "react-redux";
 
 class ShowStory extends Component {
+	componentDidMount() {
+		let { match } = this.props;
+		let storyId = match.params.id;
+	}
+
 	render() {
+		let { match } = this.props;
+		let storyId = match.params.id;
+		console.log(storyId);
+
 		return (
 			<div>
 				<NavBar
@@ -27,4 +36,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(ShowStory);
+export default connect(mapStateToProps, { logout })(ShowStory);

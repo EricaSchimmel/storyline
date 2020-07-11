@@ -6,6 +6,7 @@ import LoginContainer from "./containers/LoginContainer";
 import SignUpContainer from "./containers/SignUpContainer";
 import Dashboard from "./containers/Dashboard";
 import DashboardStories from "./containers/DashboardStories";
+import ShowStory from "./containers/ShowStory";
 
 import { Router, Route } from "react-router-dom";
 import history from "./modules/history";
@@ -26,7 +27,12 @@ class App extends Component {
 				{/* <Route path="/users/:id/characters" component={} /> */}
 
 				{/* Stories */}
-				{/* <Route path="/stories/:id" component={} /> */}
+				<Route
+					path="/stories/:id"
+					render={routerProps => {
+						return <ShowStory {...routerProps} />;
+					}}
+				/>
 				{/* <Route path="/stories/:id/new" component={} /> */}
 				{/* <Route path="/stories/:id/edit" component={} /> */}
 
