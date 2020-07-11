@@ -13,7 +13,21 @@ export const addStory = state => {
 };
 
 export const updateStory = state => {
-	return axios.patch(`/stories/${state.story.id}`);
+	return axios.patch(`/stories/${state.story.id}`, state);
+};
+
+export const createComment = data => {
+	return { type: "ADD_COMMENT", data };
+};
+
+export const addComment = state => {
+	return dispatch => {
+		return axios
+			.post(`/stories/${state.story.id}/comments`, state.comment)
+			.then(data => {
+				createComment(data);
+			});
+	};
 };
 
 // export const deleteStory = state ={
