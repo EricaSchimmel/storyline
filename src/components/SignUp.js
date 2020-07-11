@@ -35,7 +35,7 @@ class SignUp extends Component {
 					errors: res.data.errors,
 				});
 			} else {
-				return this.props.history.push("/");
+				return this.props.history.push("/dashboard");
 			}
 		});
 	};
