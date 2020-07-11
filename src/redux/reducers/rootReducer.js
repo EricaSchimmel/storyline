@@ -14,8 +14,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
 	currentUser: manageUser,
-	userStories: manageStory,
-	userCharacters: manageCharacter,
+	storyIndex: manageStory,
+	characterIndex: manageCharacter,
 });
 
 export default persistReducer(persistConfig, rootReducer);

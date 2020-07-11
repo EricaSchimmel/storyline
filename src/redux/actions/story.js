@@ -38,7 +38,9 @@ export const fetchIndexStories = () => {
 	return dispatch => {
 		dispatch({ type: "LOADING_STORIES" });
 		return axios.get("/stories").then(data => {
-			addStories(data);
+			console.log(data.data);
+			dispatch(addStories(data.data));
+			return data;
 		});
 	};
 };
@@ -47,7 +49,8 @@ export const fetchUserStories = user => {
 	return dispatch => {
 		dispatch({ type: "LOADING_STORIES" });
 		return axios.get(`/stories/${user.id}`).then(data => {
-			addStories(data);
+			dispatch(addStories(data.data));
+			return data;
 		});
 	};
 };

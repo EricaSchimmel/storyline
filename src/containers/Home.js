@@ -6,9 +6,14 @@ import StoryList from "../components/StoryList";
 import history from "../modules/history";
 
 import { logout } from "../redux/actions/user";
+import { fetchIndexStories } from "../redux/actions/story";
 import { connect } from "react-redux";
 
 class Home extends Component {
+	componentDidMount() {
+		this.props.fetchIndexStories();
+	}
+
 	render() {
 		return (
 			<div>
@@ -27,9 +32,9 @@ class Home extends Component {
 const mapStateToProps = state => {
 	return {
 		currentUser: state.currentUser,
-		stories: state.stories,
-		loading: state.loading,
+		stories: state.storyIndex.stories,
+		loading: state.storyIndex.loading,
 	};
 };
 
-export default connect(mapStateToProps, { logout })(Home);
+export default connect(mapStateToProps, { logout, fetchIndexStories })(Home);

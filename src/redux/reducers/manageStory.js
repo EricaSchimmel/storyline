@@ -13,7 +13,7 @@ export default function manageStory(
 		case "ADD_STORIES":
 			return {
 				...state,
-				stories: action.stories,
+				stories: action.data,
 				loading: false,
 			};
 
