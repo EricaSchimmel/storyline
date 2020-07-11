@@ -4,6 +4,10 @@ export const addStory = data => {
 	return { type: "ADD_STORY", data };
 };
 
+export const addStories = data => {
+	return { type: "ADD_STORIES", data };
+};
+
 export const createStory = state => {
 	return dispatch => {
 		return axios.post("/stories", state).then(data => {
@@ -33,7 +37,7 @@ export const addComment = state => {
 export const fetchIndexStories = () => {
 	return dispatch => {
 		return axios.get("/stories").then(data => {
-			addStory(data);
+			addStories(data);
 		});
 	};
 };
@@ -41,7 +45,7 @@ export const fetchIndexStories = () => {
 export const fetchUserStories = user => {
 	return dispatch => {
 		return axios.get(`/stories/${user.id}`).then(data => {
-			addStory(data);
+			addStories(data);
 		});
 	};
 };
