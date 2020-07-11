@@ -18,7 +18,7 @@ class Home extends Component {
 					history={history}
 				/>
 				<h1>All Stories</h1>
-				<StoryList />
+				<StoryList stories={this.props.stories} />
 			</div>
 		);
 	}
@@ -27,6 +27,8 @@ class Home extends Component {
 const mapStateToProps = state => {
 	return {
 		currentUser: state.currentUser,
+		stories: state.stories,
+		loading: state.loading,
 	};
 };
 
