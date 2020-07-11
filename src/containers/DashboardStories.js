@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 
 import NavBar from "../components/NavBar";
+import StoryList from "../components/StoryList";
 
 import history from "../modules/history";
+import { requireLogin } from "../helpers/componentHelpers";
 
 import { logout } from "../redux/actions/user";
+import { fetchUserStories } from "../redux/actions/story";
 import { connect } from "react-redux";
 
 class DashboardStories extends Component {
+	componentDidMount() {
+		this.props.fetchUserStories(this.props.currentUser.user);
+	}
+
 	render() {
 		return (
 			<div>
@@ -20,6 +27,7 @@ class DashboardStories extends Component {
 				/>
 
 				<h1>Your Stories</h1>
+				<StoryList stories={this.props.stories} />
 			</div>
 		);
 	}
@@ -28,9 +36,11 @@ class DashboardStories extends Component {
 const mapStateToProps = state => {
 	return {
 		currentUser: state.currentUser,
-		stories: state.stories,
-		loading: state.loading,
+		stories: state.storyIndex.stories,
+		loading: state.storyIndex.loading,
 	};
 };
 
-export default connect(mapStateToProps, { logout })(DashboardStories);
+export default connect(mapStateToProps, { logout, fetchUserStories })(
+	DashboardStories
+);

@@ -5,6 +5,7 @@ import Home from "./containers/Home";
 import LoginContainer from "./containers/LoginContainer";
 import SignUpContainer from "./containers/SignUpContainer";
 import Dashboard from "./containers/Dashboard";
+import DashboardStories from "./containers/DashboardStories";
 
 import { Router, Route } from "react-router-dom";
 import history from "./modules/history";
@@ -19,6 +20,7 @@ class App extends Component {
 
 				{/* User Pages */}
 				<Route path="/dashboard" exact component={Dashboard} />
+				<Route path="/dashboard/stories" exact component={DashboardStories} />
 				{/* <Route path="/users/:id" component={} /> */}
 				{/* <Route path="/users/:id/stories" component={} /> */}
 				{/* <Route path="/users/:id/characters" component={} /> */}
