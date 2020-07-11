@@ -1,8 +1,26 @@
 export default function viewedStory(
-	state = { story: {}, comments: [], canComment: false },
+	state = { story: {}, comments: [], canComment: false, loading: false },
 	action
 ) {
 	switch (action.type) {
+		case "LOADING_STORY":
+			return {
+				...state,
+				story: { ...state.story },
+				comments: [...state.comments],
+				canComment: state.canComment,
+				loading: true,
+			};
+
+		case "ADD_STORY":
+			return {
+				...state,
+				story: action.data.story,
+				comments: action.data.comments,
+				canComment: action.data.canComment,
+				loading: false,
+			};
+
 		case "ADD_COMMENT":
 			const comment = {
 				id: action.id,
