@@ -34,6 +34,8 @@ class ShowStory extends Component {
 					user={this.props.user}
 					canEdit={this.props.canEdit}
 				/>
+
+				<h3>Characters</h3>
 			</div>
 		);
 	}
