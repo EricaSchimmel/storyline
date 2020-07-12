@@ -15,17 +15,25 @@ class Home extends Component {
 	}
 
 	render() {
-		return (
-			<div>
-				<NavBar
-					currentUser={this.props.currentUser}
-					logout={this.props.logout}
-					history={history}
-				/>
-				<h1>All Stories</h1>
-				<StoryList stories={this.props.stories} />
-			</div>
-		);
+		if (this.props.loading) {
+			return (
+				<div>
+					<h1>Loading...</h1>
+				</div>
+			);
+		} else {
+			return (
+				<div>
+					<NavBar
+						currentUser={this.props.currentUser}
+						logout={this.props.logout}
+						history={history}
+					/>
+					<h1>All Stories</h1>
+					<StoryList stories={this.props.stories} />
+				</div>
+			);
+		}
 	}
 }
 

@@ -9,12 +9,12 @@ class CharacterInput extends Component {
 		super(props);
 
 		this.state = {
-			name: "",
-			age: 0,
-			gender: "",
-			species: "",
-			overview: "",
-			personality: "",
+			name: this.props.character.name,
+			age: this.props.character.age,
+			gender: this.props.character.gender,
+			species: this.props.character.species,
+			overview: this.props.character.overview,
+			personality: this.props.character.personality,
 		};
 	}
 
@@ -93,3 +93,14 @@ class CharacterInput extends Component {
 }
 
 export default CharacterInput;
+
+CharacterInput.defaultProps = {
+	character: {
+		name: "",
+		age: 0,
+		gender: "",
+		species: "",
+		overview: "",
+		personality: "",
+	},
+};

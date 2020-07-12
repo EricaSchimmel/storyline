@@ -6,8 +6,8 @@ class StoryInput extends Component {
 		super(props);
 
 		this.state = {
-			title: "",
-			summary: "",
+			title: this.props.story.title,
+			summary: this.props.story.summary,
 			errors: [],
 		};
 	}
@@ -73,3 +73,10 @@ class StoryInput extends Component {
 }
 
 export default StoryInput;
+
+StoryInput.defaultProps = {
+	story: {
+		title: "",
+		summary: "",
+	},
+};
