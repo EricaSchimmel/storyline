@@ -11,9 +11,6 @@ import { logout } from "../redux/actions/user";
 import { fetchStory } from "../redux/actions/story";
 import { connect } from "react-redux";
 
-// TODO: Add in Character List
-// TODO: Comment Input form
-
 class ShowStory extends Component {
 	componentDidMount() {
 		let { match } = this.props;
@@ -22,7 +19,10 @@ class ShowStory extends Component {
 	}
 
 	render() {
-		console.log(this.props);
+		const characterNameList = this.props.characters.map(character => {
+			return <li>{character.name}</li>;
+		});
+
 		return (
 			<div>
 				<NavBar
@@ -38,6 +38,7 @@ class ShowStory extends Component {
 				/>
 
 				<h3>Characters</h3>
+				{characterNameList}
 
 				<h4>Comments</h4>
 				<CommentInput
