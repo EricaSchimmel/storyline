@@ -1,6 +1,7 @@
 import axios from "axios";
 
 // TODO: Add in edit and delete request
+// TODO: Add in a action parameter to all requests here
 
 export const storyPost = (storyId, objType) => {
 	return dispatch => {
