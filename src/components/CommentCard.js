@@ -3,9 +3,9 @@ import React from "react";
 const CommentCard = props => {
 	return (
 		<div>
-			<h3>Comment Created at {props.comment.created_at}</h3>
+			<p>Comment Created at {props.comment.created_at}</p>
 
-			<h4>{props.comment.content}</h4>
+			<p>{props.comment.content}</p>
 		</div>
 	);
 };

@@ -15,21 +15,33 @@ class CommentInput extends Component {
 	};
 
 	render() {
-		return (
-			<div>
-				<form>
-					<label>Add a comment:</label>
-					<br />
-					<textarea
-						name="comment"
-						id="comment"
-						value={this.state.comment}
-						onChange={this.handleOnChange}
-					/>
-					<br />
-				</form>
-			</div>
-		);
+		if (this.props.currentUser.loggedIn && this.props.canComment) {
+			return (
+				<div>
+					<form>
+						<label>Add a comment:</label>
+						<br />
+						<textarea
+							name="comment"
+							id="comment"
+							value={this.state.comment}
+							onChange={this.handleOnChange}
+						/>
+						<br />
+
+						<input type="submit" value="Add Comment" />
+					</form>
+				</div>
+			);
+		} else if (!this.props.currentUser.loggedIn) {
+			return (
+				<div>
+					<p>You must be logged in to leave a comment.</p>
+				</div>
+			);
+		} else {
+			return <div></div>;
+		}
 	}
 }
 

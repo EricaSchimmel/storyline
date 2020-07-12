@@ -3,11 +3,19 @@ import CommentCard from "./CommentCard";
 
 class CommentList extends Component {
 	render() {
-		const commentCards = this.props.comments.map(comment => {
-			return <CommentCard comment={comment} key={comment.id} />;
-		});
+		if (this.props.comments.length === 0) {
+			return (
+				<div>
+					<p>There are currently no comments on this page.</p>
+				</div>
+			);
+		} else {
+			const commentCards = this.props.comments.map(comment => {
+				return <CommentCard comment={comment} key={comment.id} />;
+			});
 
-		return <div>{commentCards}</div>;
+			return <div>{commentCards}</div>;
+		}
 	}
 }
 

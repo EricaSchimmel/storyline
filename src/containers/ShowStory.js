@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import NavBar from "../components/NavBar";
 import StoryData from "../components/StoryData";
 import CommentList from "../components/CommentList";
+import CommentInput from "../components/CommentInput";
 
 import history from "../modules/history";
 
@@ -39,6 +40,10 @@ class ShowStory extends Component {
 				<h3>Characters</h3>
 
 				<h4>Comments</h4>
+				<CommentInput
+					currentUser={this.props.currentUser}
+					canComment={this.props.canEdit}
+				/>
 				<CommentList comments={this.props.comments} />
 			</div>
 		);
