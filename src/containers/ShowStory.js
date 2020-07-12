@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import NavBar from "../components/NavBar";
 import StoryData from "../components/StoryData";
+import CommentList from "../components/CommentList";
 
 import history from "../modules/history";
 
@@ -36,6 +37,9 @@ class ShowStory extends Component {
 				/>
 
 				<h3>Characters</h3>
+
+				<h4>Comments</h4>
+				<CommentList comments={this.props.comments} />
 			</div>
 		);
 	}
