@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 
-export default class StoryData extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			story: this.props.story,
-			characters: this.props.characters,
-			comments: this.props.characters,
-			canComment: this.props.canComment,
-		};
-	}
-
+class StoryData extends Component {
 	render() {
-		return <div></div>;
+		return (
+			<div>
+				<h1>{this.props.story.title}</h1>
+				<h2>Created By: {this.props.user.username}</h2>
+
+				<h3>About</h3>
+				<p>{this.props.story.summary}</p>
+			</div>
+		);
 	}
 }
+
+export default StoryData;
