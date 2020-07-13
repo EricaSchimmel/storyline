@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import Errors from "./Errors";
+import Errors from "../Errors";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import { addCharacter } from "../redux/actions/manageCharacter";
+
+// TODO: Add a action prop to handle the edit or add request
 
 class CharacterInput extends Component {
 	constructor(props) {
