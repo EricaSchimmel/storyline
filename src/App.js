@@ -6,7 +6,7 @@ import LoginContainer from "./containers/users/LoginContainer";
 import SignUpContainer from "./containers/users/SignUpContainer";
 import Dashboard from "./containers/users/Dashboard";
 import DashboardStories from "./containers/users/DashboardStories";
-import ShowStory from "./containers/ShowStory";
+import ShowStory from "./containers/stories/ShowStory";
 
 import { Router, Route } from "react-router-dom";
 import history from "./modules/history";

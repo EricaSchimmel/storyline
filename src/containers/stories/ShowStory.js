@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
-import NavBar from "../components/NavBar";
-import StoryData from "../components/stories/StoryData";
-import CommentList from "../components/comments/CommentList";
-import CommentInput from "../components/comments/CommentInput";
+import NavBar from "../../components/NavBar";
+import StoryData from "../../components/stories/StoryData";
+import CommentList from "../../components/comments/CommentList";
+import CommentInput from "../../components/comments/CommentInput";
 
-import history from "../modules/history";
+import history from "../../modules/history";
 
-import { logout } from "../redux/actions/user";
-import { fetchStory } from "../redux/actions/story";
+import { logout } from "../../redux/actions/user";
+import { fetchStory } from "../../redux/actions/story";
 import { connect } from "react-redux";
 
 class ShowStory extends Component {

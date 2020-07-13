@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-import NavBar from "../components/NavBar";
-import CharacterData from "../components/characters/CharacterData";
-import CommentList from "../components/comments/CommentList";
-import CommentInput from "../components/comments/CommentInput";
+import NavBar from "../../components/NavBar";
+import CharacterData from "../../components/characters/CharacterData";
+import CommentList from "../../components/comments/CommentList";
+import CommentInput from "../../components/comments/CommentInput";
 
-import history from "../modules/history";
+import history from "../../modules/history";
 
-import { logout } from "../redux/actions/user";
+import { logout } from "../../redux/actions/user";
 //import { fetchStory } from "../redux/actions/story";
 import { connect } from "react-redux";
 
