@@ -8,14 +8,6 @@ export const addStories = data => {
 	return { type: "ADD_STORIES", data };
 };
 
-// export const createStory = state => {
-// 	return dispatch => {
-// 		return axios.post("/stories", state).then(data => {
-// 			createStory(data);
-// 		});
-// 	};
-// };
-
 export const fetchIndexStories = () => {
 	return dispatch => {
 		dispatch({ type: "LOADING_STORIES" });
@@ -48,3 +40,11 @@ export const fetchStory = storyId => {
 		});
 	};
 };
+
+// export const createStory = state => {
+// 	return dispatch => {
+// 		return axios.post("/stories", state).then(data => {
+// 			createStory(data);
+// 		});
+// 	};
+// };
