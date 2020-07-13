@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Errors from "../Errors";
+import Errors from "../shared/Errors";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
