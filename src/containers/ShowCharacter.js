@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import NavBar from "../components/NavBar";
-import CharacterData from "../components/CharacterData";
+import CharacterData from "../components/characters/CharacterData";
 import CommentList from "../components/CommentList";
 import CommentInput from "../components/CommentInput";
 
