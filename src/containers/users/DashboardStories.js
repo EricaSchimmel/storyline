@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-import NavBar from "../components/NavBar";
-import StoryList from "../components/stories/StoryList";
+import NavBar from "../../components/NavBar";
+import StoryList from "../../components/stories/StoryList";
 
-import history from "../modules/history";
-import { requireLogin } from "../helpers/componentHelpers";
+import history from "../../modules/history";
+import { requireLogin } from "../../helpers/componentHelpers";
 
-import { logout } from "../redux/actions/user";
-import { fetchUserStories } from "../redux/actions/story";
+import { logout } from "../../redux/actions/user";
+import { fetchUserStories } from "../../redux/actions/story";
 import { connect } from "react-redux";
 
 class DashboardStories extends Component {

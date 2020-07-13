@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-import NavBar from "../components/NavBar";
+import NavBar from "../../components/NavBar";
 
-import history from "../modules/history";
-import { requireLogin } from "../helpers/componentHelpers";
+import history from "../../modules/history";
+import { requireLogin } from "../../helpers/componentHelpers";
 
-import { logout } from "../redux/actions/user";
+import { logout } from "../../redux/actions/user";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
