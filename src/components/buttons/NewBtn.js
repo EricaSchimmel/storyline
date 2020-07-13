@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import history from "../modules/history";
+import history from "../../modules/history";
 
 class NewBtn extends Component {
 	handleOnClick = () => {
