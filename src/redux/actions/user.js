@@ -7,7 +7,9 @@ export const setUser = data => {
 export const login = state => {
 	return dispatch => {
 		return axios.post("/login", state).then(res => {
-			dispatch(setUser(res.data));
+			if (!res.data.errors) {
+				dispatch(setUser(res.data));
+			}
 			return res;
 		});
 	};
@@ -15,9 +17,11 @@ export const login = state => {
 
 export const signup = state => {
 	return dispatch => {
-		return axios.post("/signup", state).then(data => {
-			dispatch(setUser(data));
-			return data;
+		return axios.post("/signup", state).then(res => {
+			if (!res.data.errors) {
+				dispatch(setUser(res.data));
+			}
+			return res;
 		});
 	};
 };
