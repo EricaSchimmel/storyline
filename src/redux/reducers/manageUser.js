@@ -7,12 +7,11 @@ export default function manageUser(
 	switch (action.type) {
 		case "SET_USER":
 			if (action.data.errors) {
-				console.log("Errors found.");
+				// console.log("Errors found.");
 				return state;
 			} else {
-				console.log(action.data.user);
-
-				console.log(`Logging in: ${action.data.user.username}`);
+				// console.log(action.data.user);
+				// console.log(`Logging in: ${action.data.user.username}`);
 
 				return { ...state, user: action.data.user, loggedIn: true };
 			}
