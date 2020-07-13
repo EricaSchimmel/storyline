@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
-import NavBar from "../components/NavBar";
-import Login from "../components/users/Login";
+import NavBar from "../../components/NavBar";
+import SignUp from "../../components/users/SignUp";
 
-import history from "../modules/history";
-import { redirectToHomeWhenLoggedIn } from "../helpers/componentHelpers";
+import history from "../../modules/history";
+import { redirectToHomeWhenLoggedIn } from "../../helpers/componentHelpers";
 
-import { login, logout } from "../redux/actions/user";
+import { signup, logout } from "../../redux/actions/user";
 import { connect } from "react-redux";
 
-class LoginContainer extends Component {
+class SignUpContainer extends Component {
 	render() {
 		return (
 			<div>
@@ -20,9 +20,9 @@ class LoginContainer extends Component {
 					logout={this.props.logout}
 					history={history}
 				/>
-				<Login
+				<SignUp
 					currentUser={this.props.currentUser}
-					login={this.props.login}
+					signup={this.props.signup}
 					history={history}
 				/>
 			</div>
@@ -36,4 +36,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { login, logout })(LoginContainer);
+export default connect(mapStateToProps, { signup, logout })(SignUpContainer);

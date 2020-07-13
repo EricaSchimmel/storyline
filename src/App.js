@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "./stylesheets/App.css";
 
 import Home from "./containers/Home";
-import LoginContainer from "./containers/LoginContainer";
-import SignUpContainer from "./containers/SignUpContainer";
+import LoginContainer from "./containers/users/LoginContainer";
+import SignUpContainer from "./containers/users/SignUpContainer";
 import Dashboard from "./containers/Dashboard";
 import DashboardStories from "./containers/DashboardStories";
 import ShowStory from "./containers/ShowStory";
