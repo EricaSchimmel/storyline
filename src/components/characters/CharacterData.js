@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class CharacterData extends Component {
 	renderPersonality = () => {
@@ -25,7 +26,7 @@ class CharacterData extends Component {
 				<h1>{this.props.character.name}</h1>
 
 				<h2>
-					From {this.props.story.title}, created by: {this.props.user.username}
+					From <Link to={`/stories/${this.props.story.id}`}>{this.props.story.title}</Link>, created by: {this.props.user.username}
 				</h2>
 
 				<h3>Character Details</h3>
