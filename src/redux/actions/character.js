@@ -29,3 +29,14 @@ export const fetchUserCharacters = userId => {
 		});
 	};
 };
+
+export const fetchRecentlyCreatedCharacters = () => {
+	return dispatch => {
+		dispatch({ type: "LOADING_CHARACTERS" });
+
+		return axios.get("/recently_created_characters").then(data => {
+			dispatch(addCharacters(data.data));
+			return data;
+		});
+	};
+};

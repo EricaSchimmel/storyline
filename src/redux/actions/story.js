@@ -40,3 +40,14 @@ export const fetchStory = storyId => {
 		});
 	};
 };
+
+export const fetchRecentlyCreatedStories = () => {
+	return dispatch => {
+		dispatch({ type: "LOADING_Stories" });
+
+		return axios.get("/recently_created_stories").then(data => {
+			dispatch(addStories(data.data));
+			return data;
+		});
+	};
+};
