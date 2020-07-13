@@ -15,13 +15,13 @@ class App extends Component {
 	render() {
 		return (
 			<Router history={history}>
-				<Route path="/" exact component={Home} />
-				<Route path="/signup" exact component={SignUpContainer} />
-				<Route path="/login" exact component={LoginContainer} />
+				<Route exact path="/" component={Home} />
+				<Route exact path="/signup" component={SignUpContainer} />
+				<Route exact path="/login" component={LoginContainer} />
 
 				{/* User Pages */}
-				<Route path="/dashboard" exact component={Dashboard} />
-				<Route path="/dashboard/stories" exact component={DashboardStories} />
+				<Route exact path="/dashboard" component={Dashboard} />
+				<Route exact path="/dashboard/stories" component={DashboardStories} />
 				{/* <Route path="/users/:id" component={} /> */}
 				{/* <Route path="/users/:id/stories" component={} /> */}
 				{/* <Route path="/users/:id/characters" component={} /> */}
