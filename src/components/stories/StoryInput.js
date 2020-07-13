@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Errors from "../shared/Errors";
+import Errors from "../errors/Errors";
 
 class StoryInput extends Component {
 	constructor(props) {

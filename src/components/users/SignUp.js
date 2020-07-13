@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Errors from "../shared/Errors";
+import Errors from "../errors/Errors";
 import { Link } from "react-router-dom";
 
 class SignUp extends Component {
