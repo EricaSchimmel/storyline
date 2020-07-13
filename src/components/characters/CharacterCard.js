@@ -1,12 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CharacterCard = props => {
+	debugger;
 	return (
 		<div>
-			<h1>{props.name}</h2>
-			<h2>
-				From {props.story.title} Created By: {props.user.username}
-			</h2>
+			<h2>{props.character.name}</h2>
+
+			<h3>
+				From{" "}
+				<Link to={`/stories/${props.character.story.id}`}>
+					{props.character.story.title}
+				</Link>
+				, By:
+				{props.character.user.username}
+			</h3>
 		</div>
 	);
 };

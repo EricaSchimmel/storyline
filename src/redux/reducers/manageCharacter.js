@@ -13,7 +13,7 @@ export default function manageCharacter(
 		case "ADD_CHARACTERS":
 			return {
 				...state,
-				characters: action.characters,
+				characters: action.data,
 				loading: false,
 			};
 

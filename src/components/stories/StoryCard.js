@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 const StoryCard = props => {
 	if (!props.story.user) {
 		return <div></div>;
