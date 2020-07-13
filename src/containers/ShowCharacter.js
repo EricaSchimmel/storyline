@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 import NavBar from "../components/NavBar";
 import CharacterData from "../components/characters/CharacterData";
-import CommentList from "../components/CommentList";
-import CommentInput from "../components/CommentInput";
+import CommentList from "../components/comments/CommentList";
+import CommentInput from "../components/comments/CommentInput";
 
 import history from "../modules/history";
 
