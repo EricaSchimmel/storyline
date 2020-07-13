@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import NavBar from "../components/NavBar";
-import StoryList from "../components/StoryList";
+import StoryList from "../components/stories/StoryList";
 
 import history from "../modules/history";
 import { requireLogin } from "../helpers/componentHelpers";

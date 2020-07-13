@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import NavBar from "../components/NavBar";
-import SignUp from "../components/SignUp";
+import SignUp from "../components/users/SignUp";
 
 import history from "../modules/history";
 import { redirectToHomeWhenLoggedIn } from "../helpers/componentHelpers";
