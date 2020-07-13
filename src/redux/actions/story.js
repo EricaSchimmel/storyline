@@ -40,11 +40,3 @@ export const fetchStory = storyId => {
 		});
 	};
 };
-
-// export const createStory = state => {
-// 	return dispatch => {
-// 		return axios.post("/stories", state).then(data => {
-// 			createStory(data);
-// 		});
-// 	};
-// };
