@@ -4,43 +4,59 @@ import NavBar from "../../components/NavBar";
 import CharacterData from "../../components/characters/CharacterData";
 import CommentList from "../../components/comments/CommentList";
 import CommentInput from "../../components/comments/CommentInput";
+import NotFound from "../../components/errors/NotFound";
 
 import history from "../../modules/history";
 
 import { logout } from "../../redux/actions/user";
-//import { fetchStory } from "../redux/actions/story";
+import { fetchCharacter } from "../redux/actions/character";
 import { connect } from "react-redux";
 
 class ShowCharacter extends Component {
 	componentDidMount() {
 		let { match } = this.props;
 		let characterId = match.params.id;
+		this.props.fetchCharacter(characterId);
 	}
 
 	render() {
-		return (
-			<div>
-				<NavBar
-					currentUser={this.props.currentUser}
-					logout={this.props.logout}
-					history={history}
-				/>
+		if (this.props.loading) {
+			return (
+				<div>
+					<h1>Loading...</h1>
+				</div>
+			);
+		} else if (!this.props.character) {
+			return (
+				<div>
+					<NotFound />
+				</div>
+			);
+		} else {
+			return (
+				<div>
+					<NavBar
+						currentUser={this.props.currentUser}
+						logout={this.props.logout}
+						history={history}
+					/>
 
-				<CharacterData
-					character={this.props.character}
-					user={this.props.user}
-					story={this.props.story}
-					canEdit={this.props.canEdit}
-				/>
+					<CharacterData
+						character={this.props.character}
+						user={this.props.user}
+						story={this.props.story}
+						canEdit={this.props.canEdit}
+					/>
 
-				<h4>Comments</h4>
-				<CommentInput
-					currentUser={this.props.currentUser}
-					canComment={this.props.canEdit}
-				/>
-				<CommentList comments={this.props.comments} />
-			</div>
-		);
+					<h4>Comments</h4>
+					<CommentInput
+						currentUser={this.props.currentUser}
+						canComment={this.props.canEdit}
+					/>
+					<CommentList comments={this.props.comments} />
+				</div>
+			);
+		}
 	}
 }
 
