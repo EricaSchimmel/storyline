@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 
-import NavBar from "../../components/NavBar";
-
-import history from "../../modules/history";
 import { requireLogin } from "../../helpers/componentHelpers";
 
-import { logout } from "../../redux/actions/user";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -14,12 +10,6 @@ class Dashboard extends Component {
 		return (
 			<div>
 				{requireLogin(this.props.currentUser)}
-
-				<NavBar
-					currentUser={this.props.currentUser}
-					logout={this.props.logout}
-					history={history}
-				/>
 
 				<h1>
 					Welcome to your homepage, {this.props.currentUser.user.username}!
@@ -44,4 +34,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { logout })(Dashboard);
+export default connect(mapStateToProps)(Dashboard);
