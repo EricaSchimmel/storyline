@@ -46,7 +46,7 @@ export default function viewedCharacter(
 
 			return {
 				...state,
-				comments: [...state.comments, comment],
+				comments: [comment, ...state.comments],
 			};
 
 		default:

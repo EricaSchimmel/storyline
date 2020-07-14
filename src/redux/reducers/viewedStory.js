@@ -46,7 +46,7 @@ export default function viewedStory(
 
 			return {
 				...state,
-				comments: [...state.comments, comment],
+				comments: [comment, ...state.comments],
 			};
 
 		default:
