@@ -34,7 +34,7 @@ class ShowStory extends Component {
 			);
 		} else {
 			const characterNameList = this.props.characters.map(character => {
-				return <li>{character.name}</li>;
+				return <li key={character.id}>{character.name}</li>;
 			});
 
 			return (
