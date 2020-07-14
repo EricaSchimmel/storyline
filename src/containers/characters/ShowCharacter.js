@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 
-import NavBar from "../../components/NavBar";
 import CharacterData from "../../components/characters/CharacterData";
 import CommentList from "../../components/comments/CommentList";
 import CommentInput from "../../components/comments/CommentInput";
 import NotFound from "../../components/errors/NotFound";
 
-import history from "../../modules/history";
-
-import { logout } from "../../redux/actions/user";
 import { fetchCharacter } from "../../redux/actions/character";
 import { connect } from "react-redux";
 
@@ -35,12 +31,6 @@ class ShowCharacter extends Component {
 		} else {
 			return (
 				<div>
-					<NavBar
-						currentUser={this.props.currentUser}
-						logout={this.props.logout}
-						history={history}
-					/>
-
 					<CharacterData
 						character={this.props.character}
 						user={this.props.user}
@@ -73,6 +63,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { logout, fetchCharacter })(
-	ShowCharacter
-);
+export default connect(mapStateToProps, { fetchCharacter })(ShowCharacter);

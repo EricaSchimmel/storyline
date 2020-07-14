@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 
-import NavBar from "../../components/NavBar";
 import StoryData from "../../components/stories/StoryData";
 import CommentList from "../../components/comments/CommentList";
 import CommentInput from "../../components/comments/CommentInput";
 import NotFound from "../../components/errors/NotFound";
 
-import history from "../../modules/history";
-
-import { logout } from "../../redux/actions/user";
 import { fetchStory } from "../../redux/actions/story";
 import { connect } from "react-redux";
 
@@ -39,12 +35,6 @@ class ShowStory extends Component {
 
 			return (
 				<div>
-					<NavBar
-						currentUser={this.props.currentUser}
-						logout={this.props.logout}
-						history={history}
-					/>
-
 					<StoryData
 						story={this.props.story}
 						user={this.props.user}
@@ -79,4 +69,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { logout, fetchStory })(ShowStory);
+export default connect(mapStateToProps, { fetchStory })(ShowStory);
