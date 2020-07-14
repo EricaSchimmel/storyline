@@ -4,6 +4,7 @@ import NavBar from "../../components/NavBar";
 import StoryData from "../../components/stories/StoryData";
 import CommentList from "../../components/comments/CommentList";
 import CommentInput from "../../components/comments/CommentInput";
+import NotFound from "../../components/errors/NotFound";
 
 import history from "../../modules/history";
 
@@ -19,35 +20,49 @@ class ShowStory extends Component {
 	}
 
 	render() {
-		const characterNameList = this.props.characters.map(character => {
-			return <li>{character.name}</li>;
-		});
+		if (this.props.loading) {
+			return (
+				<div>
+					<h1>Loading...</h1>
+				</div>
+			);
+		} else if (!this.props.story) {
+			return (
+				<div>
+					<NotFound />
+				</div>
+			);
+		} else {
+			const characterNameList = this.props.characters.map(character => {
+				return <li>{character.name}</li>;
+			});
 
-		return (
-			<div>
-				<NavBar
-					currentUser={this.props.currentUser}
-					logout={this.props.logout}
-					history={history}
-				/>
+			return (
+				<div>
+					<NavBar
+						currentUser={this.props.currentUser}
+						logout={this.props.logout}
+						history={history}
+					/>
 
-				<StoryData
-					story={this.props.story}
-					user={this.props.user}
-					canEdit={this.props.canEdit}
-				/>
+					<StoryData
+						story={this.props.story}
+						user={this.props.user}
+						canEdit={this.props.canEdit}
+					/>
 
-				<h3>Characters</h3>
-				{characterNameList}
+					<h3>Characters</h3>
+					{characterNameList}
 
-				<h4>Comments</h4>
-				<CommentInput
-					currentUser={this.props.currentUser}
-					canComment={this.props.canEdit}
-				/>
-				<CommentList comments={this.props.comments} />
-			</div>
-		);
+					<h4>Comments</h4>
+					<CommentInput
+						currentUser={this.props.currentUser}
+						canComment={this.props.canEdit}
+					/>
+					<CommentList comments={this.props.comments} />
+				</div>
+			);
+		}
 	}
 }
 
