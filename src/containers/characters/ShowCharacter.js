@@ -9,7 +9,7 @@ import NotFound from "../../components/errors/NotFound";
 import history from "../../modules/history";
 
 import { logout } from "../../redux/actions/user";
-import { fetchCharacter } from "../redux/actions/character";
+import { fetchCharacter } from "../../redux/actions/character";
 import { connect } from "react-redux";
 
 class ShowCharacter extends Component {
@@ -64,13 +64,15 @@ const mapStateToProps = state => {
 	return {
 		currentUser: state.currentUser,
 		character: state.viewedCharacter.character,
-		user: state.viewedStory.user,
-		story: state.viewedStory.story,
-		comments: state.viewedStory.comments,
-		canComment: state.viewedStory.canComment,
-		canEdit: state.viewedStory.canEdit,
-		loading: state.viewedStory.loading,
+		user: state.viewedCharacter.user,
+		story: state.viewedCharacter.story,
+		comments: state.viewedCharacter.comments,
+		canComment: state.viewedCharacter.canComment,
+		canEdit: state.viewedCharacter.canEdit,
+		loading: state.viewedCharacter.loading,
 	};
 };
 
-export default connect(mapStateToProps, { logout })(ShowCharacter);
+export default connect(mapStateToProps, { logout, fetchCharacter })(
+	ShowCharacter
+);

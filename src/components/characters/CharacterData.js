@@ -3,22 +3,26 @@ import { Link } from "react-router-dom";
 
 class CharacterData extends Component {
 	renderPersonality = () => {
-        if (this.props.character.personality !== "") {
-            return (
-                <h3>Personality</h3>
-                <p>{this.props.character.personality}</p>
-            )
-        }
-    };
+		if (this.props.character.personality !== "") {
+			return (
+				<>
+					<h3>Personality</h3>
+					<p>{this.props.character.personality}</p>
+				</>
+			);
+		}
+	};
 
 	renderOverview = () => {
-        if (this.props.character.overview !== "") {
-            return (
-                <h3>Overview</h3>
-                <p>{this.props.character.overview}</p>
-            )
-        }
-    };
+		if (this.props.character.overview !== "") {
+			return (
+				<>
+					<h3>Overview</h3>
+					<p>{this.props.character.overview}</p>
+				</>
+			);
+		}
+	};
 
 	render() {
 		return (
@@ -26,7 +30,11 @@ class CharacterData extends Component {
 				<h1>{this.props.character.name}</h1>
 
 				<h2>
-					From <Link to={`/stories/${this.props.story.id}`}>{this.props.story.title}</Link>, created by: {this.props.user.username}
+					From{" "}
+					<Link to={`/stories/${this.props.story.id}`}>
+						{this.props.story.title}
+					</Link>
+					, created by: {this.props.user.username}
 				</h2>
 
 				<h3>Character Details</h3>
@@ -44,8 +52,8 @@ class CharacterData extends Component {
 					</li>
 				</ul>
 
-                {this.renderPersonality}
-                {this.renderOverview}
+				{this.renderPersonality()}
+				{this.renderOverview()}
 			</div>
 		);
 	}

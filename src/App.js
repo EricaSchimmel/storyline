@@ -10,6 +10,7 @@ import ShowStory from "./containers/stories/ShowStory";
 
 import { Router, Route } from "react-router-dom";
 import history from "./modules/history";
+import ShowCharacter from "./containers/characters/ShowCharacter";
 
 class App extends Component {
 	render() {
@@ -37,7 +38,7 @@ class App extends Component {
 				{/* <Route path="/stories/:id/edit" component={} /> */}
 
 				{/* Characters */}
-				{/* <Route path="/characters/:id" component={} /> */}
+				<Route path="/characters/:id" component={ShowCharacter} />
 				{/* <Route path="/stories/:story_id/characters/new" component={} /> */}
 				{/* <Route path="/characters/:id/edit" component={} /> */}
 			</Router>
