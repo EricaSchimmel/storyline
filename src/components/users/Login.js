@@ -28,6 +28,7 @@ class Login extends Component {
 			password,
 		};
 
+		//try {
 		this.props.login(user).then(res => {
 			if (res.data.errors) {
 				this.setState({
@@ -37,6 +38,9 @@ class Login extends Component {
 				return this.props.history.push("/dashboard");
 			}
 		});
+		// } catch (e) {
+		// 	console.log(e);
+		// }
 	};
 
 	render() {

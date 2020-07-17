@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const setUser = data => {
+	debugger;
 	return { type: "SET_USER", data };
 };
 

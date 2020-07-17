@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const addStory = data => {
+	debugger;
 	return { type: "ADD_STORY", data };
 };
 
