@@ -41,7 +41,7 @@ class ShowCharacter extends Component {
 					<h4>Comments</h4>
 					<CommentInput
 						currentUser={this.props.currentUser}
-						canComment={this.props.canEdit}
+						canComment={this.props.canComment}
 					/>
 					<CommentList comments={this.props.comments} />
 				</div>
