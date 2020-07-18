@@ -26,20 +26,6 @@ export default function viewedStory(
 				loading: false,
 			};
 
-		case "ADD_COMMENT":
-			const comment = {
-				id: action.id,
-				user_id: action.user_id,
-				content: action.content,
-				commentable_type: action.commentable_type,
-				commentable_id: action.commentable_id,
-			};
-
-			return {
-				...state,
-				comments: [comment, ...state.comments],
-			};
-
 		default:
 			return state;
 	}
