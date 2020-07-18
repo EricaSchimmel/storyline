@@ -37,7 +37,7 @@ class ShowStory extends Component {
 				<div>
 					<StoryData
 						story={this.props.story}
-						user={this.props.user}
+						user={this.props.story.user}
 						canEdit={this.props.canEdit}
 					/>
 
@@ -49,7 +49,7 @@ class ShowStory extends Component {
 						currentUser={this.props.currentUser}
 						canComment={this.props.canComment}
 					/>
-					<CommentList comments={this.props.comments} />
+					{/* <CommentList comments={this.props.comments} /> */}
 				</div>
 			);
 		}
@@ -60,7 +60,6 @@ const mapStateToProps = state => {
 	return {
 		currentUser: state.currentUser,
 		story: state.viewedStory.story,
-		user: state.viewedStory.user,
 		characters: state.viewedStory.characters,
 		comments: state.viewedStory.comments,
 		canComment: state.viewedStory.canComment,

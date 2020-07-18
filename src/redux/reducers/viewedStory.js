@@ -1,10 +1,7 @@
 export default function viewedStory(
 	state = {
 		story: {},
-		user: {},
 		characters: [],
-		comments: [],
-		canComment: false,
 		canEdit: false,
 		loading: false,
 	},
@@ -15,10 +12,7 @@ export default function viewedStory(
 			return {
 				...state,
 				story: { ...state.story },
-				user: { ...state.user },
 				characters: [...state.characters],
-				comments: [...state.comments],
-				canComment: state.canComment,
 				canEdit: state.canEdit,
 				loading: true,
 			};
@@ -27,10 +21,7 @@ export default function viewedStory(
 			return {
 				...state,
 				story: action.data.story,
-				user: action.data.user,
 				characters: action.data.characters,
-				comments: action.data.comments,
-				canComment: action.data.canComment,
 				canEdit: action.data.canEdit,
 				loading: false,
 			};

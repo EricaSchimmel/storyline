@@ -44,7 +44,7 @@ export const fetchStory = storyId => {
 
 export const fetchRecentlyCreatedStories = () => {
 	return dispatch => {
-		dispatch({ type: "LOADING_Stories" });
+		dispatch({ type: "LOADING_STORIES" });
 
 		return axios.get("/recently_created_stories").then(data => {
 			dispatch(addStories(data.data));
