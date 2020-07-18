@@ -7,6 +7,7 @@ import manageStory from "./manageStory";
 import manageCharacter from "./manageCharacter";
 import viewedStory from "./viewedStory";
 import viewedCharacter from "./viewedCharacter";
+import manageComments from "./manageComments";
 
 const persistConfig = {
 	key: "root",
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
 	characterIndex: manageCharacter,
 	viewedStory,
 	viewedCharacter,
+	commentsIndex: manageComments,
 });
 
 export default persistReducer(persistConfig, rootReducer);

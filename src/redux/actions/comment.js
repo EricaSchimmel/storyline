@@ -10,7 +10,11 @@ export const addComment = data => {
 
 export const fetchComments = (objType, objId) => {
 	return dispatch => {
-		return axios.get(`/${objType}/${objId}/comments`);
+		dispatch({ type: "LOADING_COMMENTS" });
+		return axios.get(`/${objType}/${objId}/comments`).then(res => {
+			dispatch(addComments(res.data));
+			return res;
+		});
 	};
 };
 

@@ -22,7 +22,6 @@ export default function manageComments(
 		case "ADD_COMMENT":
 			const comment = {
 				id: action.id,
-				story_id: action.story_id,
 				content: action.content,
 				user: action.user,
 			};
