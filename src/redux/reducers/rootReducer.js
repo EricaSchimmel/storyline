@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
 	characterIndex: manageCharacter,
 	viewedStory,
 	viewedCharacter,
-	commentsIndex: manageComments,
+	commentIndex: manageComments,
 });
 
 export default persistReducer(persistConfig, rootReducer);

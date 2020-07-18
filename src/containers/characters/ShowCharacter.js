@@ -6,6 +6,7 @@ import CommentInput from "../../components/comments/CommentInput";
 import NotFound from "../../components/errors/NotFound";
 
 import { fetchCharacter } from "../../redux/actions/character";
+import { fetchComments } from "../../redux/actions/comment";
 import { connect } from "react-redux";
 
 class ShowCharacter extends Component {
@@ -13,10 +14,11 @@ class ShowCharacter extends Component {
 		let { match } = this.props;
 		let characterId = match.params.id;
 		this.props.fetchCharacter(characterId);
+		this.props.fetchComments("characters", characterId);
 	}
 
 	render() {
-		if (this.props.loading) {
+		if (this.props.loadingCharacter || this.props.loadingComments) {
 			return (
 				<div>
 					<h1>Loading...</h1>
@@ -43,7 +45,7 @@ class ShowCharacter extends Component {
 						currentUser={this.props.currentUser}
 						canComment={this.props.canComment}
 					/>
-					{/* <CommentList comments={this.props.comments} /> */}
+					<CommentList comments={this.props.comments} />
 				</div>
 			);
 		}
@@ -55,8 +57,13 @@ const mapStateToProps = state => {
 		currentUser: state.currentUser,
 		character: state.viewedCharacter.character,
 		canEdit: state.viewedCharacter.canEdit,
-		loading: state.viewedCharacter.loading,
+		comments: state.commentIndex.comments,
+		canComment: state.commentIndex.canComment,
+		loadingCharacter: state.viewedCharacter.loading,
+		loadingComments: state.commentIndex.loading,
 	};
 };
 
-export default connect(mapStateToProps, { fetchCharacter })(ShowCharacter);
+export default connect(mapStateToProps, { fetchCharacter, fetchComments })(
+	ShowCharacter
+);

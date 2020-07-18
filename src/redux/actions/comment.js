@@ -1,5 +1,7 @@
 import axios from "axios";
 
+// TODO: Add dispatch in to postComment
+
 export const addComments = data => {
 	return { type: "ADD_COMMENTS", data };
 };

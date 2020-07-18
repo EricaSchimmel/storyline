@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Errors from "../errors/Errors";
 
+// TODO: Add in action prop for edit or add
+
 class StoryInput extends Component {
 	constructor(props) {
 		super(props);

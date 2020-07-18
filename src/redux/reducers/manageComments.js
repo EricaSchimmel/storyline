@@ -26,7 +26,7 @@ export default function manageComments(
 				user: action.user,
 			};
 
-			return { ...state, comments: [...state.comments, comments] };
+			return { ...state, comments: [...state.comments, comment] };
 
 		default:
 			return state;
