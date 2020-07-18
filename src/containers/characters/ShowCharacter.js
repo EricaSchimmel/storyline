@@ -33,8 +33,8 @@ class ShowCharacter extends Component {
 				<div>
 					<CharacterData
 						character={this.props.character}
-						user={this.props.user}
-						story={this.props.story}
+						user={this.props.character.user}
+						story={this.props.character.story}
 						canEdit={this.props.canEdit}
 					/>
 
@@ -43,7 +43,7 @@ class ShowCharacter extends Component {
 						currentUser={this.props.currentUser}
 						canComment={this.props.canComment}
 					/>
-					<CommentList comments={this.props.comments} />
+					{/* <CommentList comments={this.props.comments} /> */}
 				</div>
 			);
 		}
@@ -54,10 +54,6 @@ const mapStateToProps = state => {
 	return {
 		currentUser: state.currentUser,
 		character: state.viewedCharacter.character,
-		user: state.viewedCharacter.user,
-		story: state.viewedCharacter.story,
-		comments: state.viewedCharacter.comments,
-		canComment: state.viewedCharacter.canComment,
 		canEdit: state.viewedCharacter.canEdit,
 		loading: state.viewedCharacter.loading,
 	};
