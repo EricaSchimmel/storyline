@@ -6,6 +6,7 @@ import CommentInput from "../../components/comments/CommentInput";
 import NotFound from "../../components/errors/NotFound";
 
 import { fetchStory } from "../../redux/actions/story";
+import { fetchComments } from "../../redux/actions/comment";
 import { connect } from "react-redux";
 
 class ShowStory extends Component {
@@ -13,10 +14,11 @@ class ShowStory extends Component {
 		let { match } = this.props;
 		let storyId = match.params.id;
 		this.props.fetchStory(storyId);
+		this.props.fetchComments("stories", storyId);
 	}
 
 	render() {
-		if (this.props.loading) {
+		if (this.props.loadingStory || this.props.loadingComments) {
 			return (
 				<div>
 					<h1>Loading...</h1>
@@ -49,7 +51,7 @@ class ShowStory extends Component {
 						currentUser={this.props.currentUser}
 						canComment={this.props.canComment}
 					/>
-					{/* <CommentList comments={this.props.comments} /> */}
+					<CommentList comments={this.props.comments} />
 				</div>
 			);
 		}
@@ -61,11 +63,14 @@ const mapStateToProps = state => {
 		currentUser: state.currentUser,
 		story: state.viewedStory.story,
 		characters: state.viewedStory.characters,
-		comments: state.viewedStory.comments,
-		canComment: state.viewedStory.canComment,
+		comments: state.commentIndex.comments,
+		canComment: state.commentIndex.canComment,
 		canEdit: state.viewedStory.canEdit,
-		loading: state.viewedStory.loading,
+		loadingStory: state.viewedStory.loading,
+		loadingComments: state.commentIndex.loading,
 	};
 };
 
-export default connect(mapStateToProps, { fetchStory })(ShowStory);
+export default connect(mapStateToProps, { fetchStory, fetchComments })(
+	ShowStory
+);
