@@ -6,11 +6,13 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Dashboard extends Component {
+	componentDidMount() {
+		requireLogin(this.props.currentUser);
+	}
+
 	render() {
 		return (
 			<div>
-				{requireLogin(this.props.currentUser)}
-
 				<h1>
 					Welcome to your homepage, {this.props.currentUser.user.username}!
 				</h1>
