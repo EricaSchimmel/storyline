@@ -22,6 +22,12 @@ export const fetchComments = (objType, objId) => {
 
 export const postComment = (objType, objId, data) => {
 	return dispatch => {
-		return axios.post(`/${objType}/${objId}/comments`, data);
+		return axios.post(`/${objType}/${objId}/comments`, data).then(res => {
+			if (!res.data.errors) {
+				dispatch(addComment(res.data));
+			}
+
+			return res;
+		});
 	};
 };

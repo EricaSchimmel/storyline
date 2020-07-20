@@ -8,6 +8,12 @@ class CommentInput extends Component {
 		};
 	}
 
+	handleOnSubmit = () => {
+		let data = { content: this.state.content };
+
+		this.props.postComment(this.props.objType, this.props.objId, data);
+	};
+
 	handleOnChange = event => {
 		this.setState({
 			[event.target.name]: event.target.value,
@@ -18,13 +24,13 @@ class CommentInput extends Component {
 		if (this.props.currentUser.loggedIn && this.props.canComment) {
 			return (
 				<div>
-					<form>
+					<form onSubmit={this.handleOnSubmit}>
 						<label>Add a comment:</label>
 						<br />
 						<textarea
-							name="comment"
-							id="comment"
-							value={this.state.comment}
+							name="content"
+							id="content"
+							value={this.state.content}
 							onChange={this.handleOnChange}
 						/>
 						<br />

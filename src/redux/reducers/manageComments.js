@@ -21,10 +21,13 @@ export default function manageComments(
 
 		case "ADD_COMMENT":
 			const comment = {
-				id: action.id,
-				content: action.content,
-				user: action.user,
+				id: action.data.id,
+				content: action.data.content,
+				user: action.data.user,
+				created_at: action.data.created_at,
 			};
+
+			console.log(action.data);
 
 			return { ...state, comments: [...state.comments, comment] };
 

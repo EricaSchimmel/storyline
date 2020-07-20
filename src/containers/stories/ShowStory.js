@@ -6,7 +6,7 @@ import CommentInput from "../../components/comments/CommentInput";
 import NotFound from "../../components/errors/NotFound";
 
 import { fetchStory } from "../../redux/actions/story";
-import { fetchComments } from "../../redux/actions/comment";
+import { fetchComments, postComment } from "../../redux/actions/comment";
 import { connect } from "react-redux";
 
 class ShowStory extends Component {
@@ -50,6 +50,9 @@ class ShowStory extends Component {
 					<CommentInput
 						currentUser={this.props.currentUser}
 						canComment={this.props.canComment}
+						postComment={this.props.postComment}
+						objType={"stories"}
+						objId={this.props.story.id}
 					/>
 					<CommentList comments={this.props.comments} />
 				</div>
@@ -71,6 +74,8 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { fetchStory, fetchComments })(
-	ShowStory
-);
+export default connect(mapStateToProps, {
+	fetchStory,
+	fetchComments,
+	postComment,
+})(ShowStory);
