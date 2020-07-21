@@ -7,6 +7,7 @@ import NotFound from "../../components/errors/NotFound";
 
 import { fetchStory } from "../../redux/actions/story";
 import { fetchComments, postComment } from "../../redux/actions/comment";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class ShowStory extends Component {
@@ -16,6 +17,23 @@ class ShowStory extends Component {
 		this.props.fetchStory(storyId);
 		this.props.fetchComments("stories", storyId);
 	}
+
+	renderCharacterNameList = () => {
+		let characterNameList = (
+			<div>This story does not have any characters currently.</div>
+		);
+
+		if (this.props.characters.length !== 0) {
+			characterNameList = this.props.characters.map(character => {
+				return (
+					<li key={character.id}>
+						<Link to={`/characters/${character.id}`}>{character.name}</Link>
+					</li>
+				);
+			});
+		}
+		return characterNameList;
+	};
 
 	render() {
 		if (this.props.loadingStory || this.props.loadingComments) {
@@ -31,16 +49,6 @@ class ShowStory extends Component {
 				</div>
 			);
 		} else {
-			if (this.props.characters.length() != 0) {
-				const characterNameList = this.props.characters.map(character => {
-					return <li key={character.id}>{character.name}</li>;
-				});
-			} else {
-				const characterNameList = (
-					<div>This story does not have any characters currently.</div>
-				);
-			}
-
 			return (
 				<div>
 					<StoryData
@@ -50,7 +58,7 @@ class ShowStory extends Component {
 					/>
 
 					<h3>Characters</h3>
-					{characterNameList}
+					{this.renderCharacterNameList()}
 
 					<h4>Comments</h4>
 					<CommentInput
