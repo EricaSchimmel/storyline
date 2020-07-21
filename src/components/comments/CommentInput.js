@@ -8,10 +8,13 @@ class CommentInput extends Component {
 		};
 	}
 
-	handleOnSubmit = () => {
+	handleOnSubmit = event => {
+		event.preventDefault();
+
 		let data = { content: this.state.content };
 
 		this.props.postComment(this.props.objType, this.props.objId, data);
+		this.setState({ content: "" });
 	};
 
 	handleOnChange = event => {

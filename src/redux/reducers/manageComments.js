@@ -29,7 +29,7 @@ export default function manageComments(
 
 			console.log(action.data);
 
-			return { ...state, comments: [...state.comments, comment] };
+			return { ...state, comments: [comment, ...state.comments] };
 
 		default:
 			return state;

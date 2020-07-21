@@ -15,7 +15,7 @@ class DashboardStories extends Component {
 	}
 
 	renderStories = () => {
-		if (this.props.stories !== []) {
+		if (this.props.stories.length !== 0) {
 			return (
 				<div>
 					<StoryList stories={this.props.stories} />
