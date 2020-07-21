@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Errors from "../errors/Errors";
 
-// TODO: Add a action prop to handle the edit or add request
-
 class CharacterInput extends Component {
 	constructor(props) {
 		super(props);
@@ -14,6 +12,7 @@ class CharacterInput extends Component {
 			species: this.props.character.species,
 			overview: this.props.character.overview,
 			personality: this.props.character.personality,
+			errors: [],
 		};
 	}
 
@@ -23,10 +22,45 @@ class CharacterInput extends Component {
 		});
 	};
 
+	handleOnSubmit = event => {
+		event.preventDefault();
+
+		const { name, age, gender, species, overview, personality } = this.state;
+
+		character = {
+			name,
+			age,
+			gender,
+			species,
+			overview,
+			personality,
+		};
+
+		if (this.props.actionType === "new") {
+			this.props.action(this.props.objId, "characters", character).then(res => {
+				if (res.data.errors) {
+					this.setState({
+						errors: res.data.errors,
+					});
+				} else {
+					this.history.push(`/characters/${res.data.id}`);
+				}
+			});
+		} else if (this.props.actionType === "edit") {
+			this.props.action("characters", this.props.objId, character).then(res => {
+				if (res.data.errors) {
+					this.setState({ errors: res.data.errors });
+				} else {
+					this.props.history.push(`/characters/${res.data.id}`);
+				}
+			});
+		}
+	};
+
 	render() {
 		return (
 			<div>
-				<form>
+				<form onSubmit={this.handleOnSubmit}>
 					<label>Name</label>
 					<br />
 					<input
