@@ -31,9 +31,15 @@ class ShowStory extends Component {
 				</div>
 			);
 		} else {
-			const characterNameList = this.props.characters.map(character => {
-				return <li key={character.id}>{character.name}</li>;
-			});
+			if (this.props.characters.length() != 0) {
+				const characterNameList = this.props.characters.map(character => {
+					return <li key={character.id}>{character.name}</li>;
+				});
+			} else {
+				const characterNameList = (
+					<div>This story does not have any characters currently.</div>
+				);
+			}
 
 			return (
 				<div>
