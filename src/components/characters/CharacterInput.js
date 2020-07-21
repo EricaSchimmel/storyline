@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Errors from "../errors/Errors";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 
 // TODO: Add a action prop to handle the edit or add request
 
