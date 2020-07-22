@@ -6,12 +6,12 @@ class CharacterInput extends Component {
 		super(props);
 
 		this.state = {
-			name: this.props.character.name,
-			age: this.props.character.age,
-			gender: this.props.character.gender,
-			species: this.props.character.species,
-			overview: this.props.character.overview,
-			personality: this.props.character.personality,
+			name: props.character.name,
+			age: props.character.age,
+			gender: props.character.gender,
+			species: props.character.species,
+			overview: props.character.overview,
+			personality: props.character.personality,
 			errors: [],
 		};
 	}

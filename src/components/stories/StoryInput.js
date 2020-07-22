@@ -8,8 +8,8 @@ class StoryInput extends Component {
 		super(props);
 
 		this.state = {
-			title: this.props.story.title,
-			summary: this.props.story.summary,
+			title: props.story.title,
+			summary: props.story.summary,
 			errors: [],
 		};
 	}
