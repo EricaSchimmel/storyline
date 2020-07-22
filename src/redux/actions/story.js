@@ -52,3 +52,17 @@ export const fetchRecentlyCreatedStories = () => {
 		});
 	};
 };
+
+export const postStory = state => {
+	return dispatch => {
+		return axios.post("/stories", state).then(res => {
+			return res;
+		});
+	};
+};
+
+export const patchStory = (state, storyId) => {
+	return axios.patch(`/stories/${storyId}`, state).then(res => {
+		return res;
+	});
+};

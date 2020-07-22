@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Errors from "../errors/Errors";
 
+import history from "../../modules/history";
+
 // TODO: Add in action prop for edit or add
 
 class StoryInput extends Component {
@@ -26,18 +28,31 @@ class StoryInput extends Component {
 		const { title, summary } = this.state;
 
 		let story = {
-			story: { title, summary },
+			title,
+			summary,
 		};
 
-		this.props.action(story).then(res => {
-			if (res.data.errors) {
-				this.setState({
-					errors: res.data.errors,
-				});
-			} else {
-				return this.props.history.push("/");
-			}
-		});
+		if (this.props.actionType === "new") {
+			this.props.action(story).then(res => {
+				if (res.data.errors) {
+					this.setState({
+						errors: res.data.errors,
+					});
+				} else {
+					return history.push(`/stories/${res.data.id}`);
+				}
+			});
+		} else if (this.props.actionType === "edit") {
+			this.props.action(story, this.props.storyId).then(res => {
+				if (res.data.errors) {
+					this.setState({
+						errors: res.data.errors,
+					});
+				} else {
+					return history.push(`/stories/${res.data.id}`);
+				}
+			});
+		}
 	};
 
 	render() {
@@ -77,6 +92,8 @@ class StoryInput extends Component {
 export default StoryInput;
 
 StoryInput.defaultProps = {
+	actionType: "new",
+
 	story: {
 		title: "",
 		summary: "",

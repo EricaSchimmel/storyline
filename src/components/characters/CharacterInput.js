@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Errors from "../errors/Errors";
 
+import history from "../../modules/history";
+
 class CharacterInput extends Component {
 	constructor(props) {
 		super(props);
@@ -43,7 +45,7 @@ class CharacterInput extends Component {
 						errors: res.data.errors,
 					});
 				} else {
-					this.history.push(`/characters/${res.data.id}`);
+					history.push(`/characters/${res.data.id}`);
 				}
 			});
 		} else if (this.props.actionType === "edit") {
@@ -51,7 +53,7 @@ class CharacterInput extends Component {
 				if (res.data.errors) {
 					this.setState({ errors: res.data.errors });
 				} else {
-					this.props.history.push(`/characters/${res.data.id}`);
+					history.push(`/characters/${res.data.id}`);
 				}
 			});
 		}

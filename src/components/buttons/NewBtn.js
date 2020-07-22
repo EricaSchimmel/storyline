@@ -10,20 +10,10 @@ class NewBtn extends Component {
 		}
 	};
 
-	getBtnName = () => {
-		let btnName = this.props.objType;
-
-		if (btnName !== "story") {
-			btnName = btnName.substring(0, btnName.length - 1);
-		}
-
-		return btnName;
-	};
-
 	render() {
 		return (
 			<div>
-				<button onClick={this.handleOnClick}>Add {this.getBtnName()}</button>
+				<button onClick={this.handleOnClick}>Add</button>
 			</div>
 		);
 	}
