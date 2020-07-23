@@ -34,9 +34,9 @@ export default function manageCharacter(
 
 		case "REMOVE_CHARACTER":
 			const characters = state.characters.filter(
-				character => character.id !== action.id
+				character => character.id !== action.data.id
 			);
-			return { ...state, characters: [characters] };
+			return { ...state, characters: characters };
 
 		default:
 			return state;

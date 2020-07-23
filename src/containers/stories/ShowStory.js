@@ -5,8 +5,13 @@ import CommentList from "../../components/comments/CommentList";
 import CommentInput from "../../components/comments/CommentInput";
 import CharacterNameList from "../../components/characters/CharacterNameList";
 import NotFound from "../../components/errors/NotFound";
+import NewBtn from "../../components/buttons/NewBtn";
 
 import { fetchStory } from "../../redux/actions/story";
+import {
+	fetchStoryCharacters,
+	deleteCharacter,
+} from "../../redux/actions/character";
 import { fetchComments, postComment } from "../../redux/actions/comment";
 import { connect } from "react-redux";
 
@@ -15,11 +20,16 @@ class ShowStory extends Component {
 		let { match } = this.props;
 		let storyId = match.params.id;
 		this.props.fetchStory(storyId);
+		this.props.fetchStoryCharacters(storyId);
 		this.props.fetchComments("stories", storyId);
 	}
 
 	render() {
-		if (this.props.loadingStory || this.props.loadingComments) {
+		if (
+			this.props.loadingStory ||
+			this.props.loadingComments ||
+			this.props.loadingCharacters
+		) {
 			return (
 				<div>
 					<h1>Loading...</h1>
@@ -43,6 +53,7 @@ class ShowStory extends Component {
 					<h3>Characters</h3>
 					<CharacterNameList
 						characters={this.props.characters}
+						deleteAction={this.props.deleteCharacter}
 						canEdit={this.props.canEdit}
 					/>
 
@@ -65,11 +76,12 @@ const mapStateToProps = state => {
 	return {
 		currentUser: state.currentUser,
 		story: state.viewedStory.story,
-		characters: state.viewedStory.characters,
+		characters: state.characterIndex.characters,
 		comments: state.commentIndex.comments,
 		canComment: state.commentIndex.canComment,
 		canEdit: state.viewedStory.canEdit,
 		loadingStory: state.viewedStory.loading,
+		loadingCharacters: state.characterIndex.loading,
 		loadingComments: state.commentIndex.loading,
 	};
 };
@@ -78,4 +90,6 @@ export default connect(mapStateToProps, {
 	fetchStory,
 	fetchComments,
 	postComment,
+	fetchStoryCharacters,
+	deleteCharacter,
 })(ShowStory);

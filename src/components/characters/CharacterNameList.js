@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import EditBtn from "../buttons/EditBtn";
+import DeleteBtn from "../buttons/DeleteBtn";
 
 import { Link } from "react-router-dom";
 
@@ -23,6 +24,7 @@ class CharacterNameList extends Component {
 						<li key={character.id}>
 							<Link to={`/characters/${character.id}`}>{character.name}</Link>
 							<EditBtn objType="characters" objId={character.id} />
+							<DeleteBtn element={character} delete={this.props.deleteAction} />
 						</li>
 					);
 				}
@@ -37,3 +39,7 @@ class CharacterNameList extends Component {
 }
 
 export default CharacterNameList;
+
+CharacterNameList.defaultProps = {
+	canEdit: false,
+};
