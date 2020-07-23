@@ -62,7 +62,9 @@ export const postStory = state => {
 };
 
 export const patchStory = (state, storyId) => {
-	return axios.patch(`/stories/${storyId}`, state).then(res => {
-		return res;
-	});
+	return dispatch => {
+		return axios.patch(`/stories/${storyId}`, state).then(res => {
+			return res;
+		});
+	};
 };

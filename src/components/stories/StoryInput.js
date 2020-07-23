@@ -43,7 +43,7 @@ class StoryInput extends Component {
 				}
 			});
 		} else if (this.props.actionType === "edit") {
-			this.props.action(story, this.props.storyId).then(res => {
+			this.props.action(story, this.props.story.id).then(res => {
 				if (res.data.errors) {
 					this.setState({
 						errors: res.data.errors,
