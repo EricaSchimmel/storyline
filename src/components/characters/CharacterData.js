@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 class CharacterData extends Component {
 	renderPersonality = () => {
-		if (this.props.character.personality !== "") {
+		if (this.props.character.personality) {
 			return (
 				<>
 					<h3>Personality</h3>
@@ -14,7 +14,7 @@ class CharacterData extends Component {
 	};
 
 	renderOverview = () => {
-		if (this.props.character.overview !== "") {
+		if (this.props.character.overview) {
 			return (
 				<>
 					<h3>Overview</h3>

@@ -11,12 +11,20 @@ class NewBtn extends Component {
 	};
 
 	render() {
-		return (
-			<div>
-				<button onClick={this.handleOnClick}>Add</button>
-			</div>
-		);
+		if (this.props.canEdit) {
+			return (
+				<div>
+					<button onClick={this.handleOnClick}>Add</button>
+				</div>
+			);
+		} else {
+			return <div></div>;
+		}
 	}
 }
 
 export default NewBtn;
+
+NewBtn.defaultProps = {
+	canEdit: true,
+};

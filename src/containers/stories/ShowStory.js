@@ -51,6 +51,11 @@ class ShowStory extends Component {
 					/>
 
 					<h3>Characters</h3>
+					<NewBtn
+						canEdit={this.props.canEdit}
+						objType="characters"
+						storyId={this.props.story.id}
+					/>
 					<CharacterNameList
 						characters={this.props.characters}
 						deleteAction={this.props.deleteCharacter}
