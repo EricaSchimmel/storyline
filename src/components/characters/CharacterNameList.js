@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+
+import EditBtn from "../buttons/EditBtn";
+
 import { Link } from "react-router-dom";
 
 class CharacterNameList extends Component {
@@ -9,11 +12,20 @@ class CharacterNameList extends Component {
 
 		if (this.props.characters.length !== 0) {
 			characterNameList = this.props.characters.map(character => {
-				return (
-					<li key={character.id}>
-						<Link to={`/characters/${character.id}`}>{character.name}</Link>
-					</li>
-				);
+				if (!this.props.canEdit) {
+					return (
+						<li key={character.id}>
+							<Link to={`/characters/${character.id}`}>{character.name}</Link>
+						</li>
+					);
+				} else {
+					return (
+						<li key={character.id}>
+							<Link to={`/characters/${character.id}`}>{character.name}</Link>
+							<EditBtn objType="characters" objId={character.id} />
+						</li>
+					);
+				}
 			});
 		}
 		return characterNameList;

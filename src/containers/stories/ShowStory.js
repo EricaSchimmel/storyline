@@ -41,7 +41,10 @@ class ShowStory extends Component {
 					/>
 
 					<h3>Characters</h3>
-					<CharacterNameList characters={this.props.characters} />
+					<CharacterNameList
+						characters={this.props.characters}
+						canEdit={this.props.canEdit}
+					/>
 
 					<h4>Comments</h4>
 					<CommentInput
