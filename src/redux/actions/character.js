@@ -13,6 +13,17 @@ export const removeCharacter = data => {
 	return { type: "REMOVE_CHARACTER", data };
 };
 
+export const fetchIndexCharacters = () => {
+	return dispatch => {
+		dispatch({ type: "LOADING_CHARACTERS" });
+
+		return axios.get("/characters").then(data => {
+			dispatch(addCharacters(data.data));
+			return data;
+		});
+	};
+};
+
 export const fetchCharacter = characterId => {
 	return dispatch => {
 		dispatch({ type: "LOADING_CHARACTER" });

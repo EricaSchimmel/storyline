@@ -16,6 +16,7 @@ import ShowStory from "./containers/stories/ShowStory";
 import EditStory from "./containers/stories/EditStory";
 import NewStory from "./containers/stories/NewStory";
 
+import CharacterIndex from "./containers/characters/CharacterIndex";
 import ShowCharacter from "./containers/characters/ShowCharacter";
 import NewCharacter from "./containers/characters/NewCharacter";
 import EditCharacter from "./containers/characters/EditCharacter";
@@ -58,6 +59,7 @@ class App extends Component {
 					<Route path="/stories/:id" component={ShowStory} />
 
 					{/* Characters */}
+					<Route exact path="/characters" component={CharacterIndex} />
 					<Route
 						exact
 						strict
