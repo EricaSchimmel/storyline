@@ -27,9 +27,11 @@ export default function manageStory(
 
 			return { ...state, stories: [...state.stories, story] };
 
-		case "DELETE_STORY":
-			const stories = state.stories.filter(story => story.id !== action.id);
-			return { ...state, stories: [stories] };
+		case "REMOVE_STORY":
+			const stories = state.stories.filter(
+				story => story.id !== action.data.id
+			);
+			return { ...state, stories: stories };
 
 		default:
 			return state;

@@ -5,7 +5,7 @@ import NewBtn from "../../components/buttons/NewBtn";
 
 import { requireLogin } from "../../helpers/componentHelpers";
 
-import { fetchUserStories } from "../../redux/actions/story";
+import { fetchUserStories, deleteStory } from "../../redux/actions/story";
 import { connect } from "react-redux";
 
 class DashboardStories extends Component {
@@ -18,7 +18,11 @@ class DashboardStories extends Component {
 		if (this.props.stories.length !== 0) {
 			return (
 				<div>
-					<StoryList stories={this.props.stories} />
+					<StoryList
+						stories={this.props.stories}
+						canEdit={true}
+						deleteAction={this.props.deleteStory}
+					/>
 				</div>
 			);
 		} else {
@@ -60,4 +64,6 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { fetchUserStories })(DashboardStories);
+export default connect(mapStateToProps, { fetchUserStories, deleteStory })(
+	DashboardStories
+);

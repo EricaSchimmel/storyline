@@ -9,6 +9,11 @@ export const addStories = data => {
 	return { type: "ADD_STORIES", data };
 };
 
+export const removeStory = data => {
+	debugger;
+	return { type: "REMOVE_STORY", data };
+};
+
 export const fetchIndexStories = () => {
 	return dispatch => {
 		dispatch({ type: "LOADING_STORIES" });
@@ -64,6 +69,18 @@ export const postStory = state => {
 export const patchStory = (state, storyId) => {
 	return dispatch => {
 		return axios.patch(`/stories/${storyId}`, state).then(res => {
+			return res;
+		});
+	};
+};
+
+export const deleteStory = story => {
+	return dispatch => {
+		return axios.delete(`/stories/${story.id}`).then(res => {
+			if (!res.errors) {
+				dispatch(removeStory(res.data));
+			}
+
 			return res;
 		});
 	};

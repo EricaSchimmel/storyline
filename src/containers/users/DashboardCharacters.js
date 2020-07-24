@@ -8,7 +8,10 @@ import { requireLogin } from "../../helpers/componentHelpers";
 import { Link } from "react-router-dom";
 
 import { fetchUserStories } from "../../redux/actions/story";
-import { fetchUserCharacters } from "../../redux/actions/character";
+import {
+	fetchUserCharacters,
+	deleteCharacter,
+} from "../../redux/actions/character";
 import { connect } from "react-redux";
 
 class DashboardCharacters extends Component {
@@ -19,6 +22,7 @@ class DashboardCharacters extends Component {
 	}
 
 	render() {
+		debugger;
 		switch (true) {
 			case this.props.loadingStories || this.props.loadingCharacters:
 				return (
@@ -27,7 +31,8 @@ class DashboardCharacters extends Component {
 					</div>
 				);
 
-			case !this.props.stories && !this.props.characters:
+			case this.props.stories.length === 0 &&
+				this.props.characters.length === 0:
 				return (
 					<div>
 						<h1>Your Characters</h1>
@@ -38,7 +43,7 @@ class DashboardCharacters extends Component {
 					</div>
 				);
 
-			case !this.props.characters:
+			case this.props.characters.length === 0:
 				return (
 					<div>
 						<h1>Your Characters</h1>
@@ -59,7 +64,11 @@ class DashboardCharacters extends Component {
 						<h1>Your Characters</h1>
 						<StorySelect stories={this.props.stories} objType="characters" />
 
-						<CharacterList characters={this.props.characters} />
+						<CharacterList
+							characters={this.props.characters}
+							canEdit={true}
+							deleteAction={this.props.deleteCharacter}
+						/>
 					</div>
 				);
 		}
@@ -79,4 +88,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
 	fetchUserCharacters,
 	fetchUserStories,
+	deleteCharacter,
 })(DashboardCharacters);
