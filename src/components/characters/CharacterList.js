@@ -39,4 +39,5 @@ export default CharacterList;
 
 CharacterList.defaultProps = {
 	canEdit: false,
+	displayUser: true,
 };

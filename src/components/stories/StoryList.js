@@ -39,4 +39,5 @@ export default StoryList;
 
 StoryList.defaultProps = {
 	canEdit: false,
+	displayUser: true,
 };

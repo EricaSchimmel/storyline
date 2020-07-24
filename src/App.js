@@ -11,6 +11,7 @@ import Dashboard from "./containers/users/Dashboard";
 import DashboardStories from "./containers/users/DashboardStories";
 import DashboardCharacters from "./containers/users/DashboardCharacters";
 
+import StoryIndex from "./containers/stories/StoryIndex";
 import ShowStory from "./containers/stories/ShowStory";
 import EditStory from "./containers/stories/EditStory";
 import NewStory from "./containers/stories/NewStory";
@@ -45,6 +46,7 @@ class App extends Component {
 					{/* <Route path="/users/:id/characters" component={} /> */}
 
 					{/* Stories */}
+					<Route exact path="/stories" component={StoryIndex} />
 					<Route strict path="/stories/new" component={NewStory} />
 					<Route path="/stories/:id/edit" component={EditStory} />
 					<Route
