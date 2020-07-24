@@ -10,14 +10,24 @@ class CharacterList extends Component {
 			if (this.props.canEdit) {
 				return (
 					<>
-						<CharacterCard character={character} key={character.id} />
+						<CharacterCard
+							character={character}
+							key={character.id}
+							displayUser={this.props.displayUser}
+						/>
 
 						<EditBtn objType="characters" objId={character.id} />
 						<DeleteBtn element={character} delete={this.props.deleteAction} />
 					</>
 				);
 			} else {
-				return <CharacterCard character={character} key={character.id} />;
+				return (
+					<CharacterCard
+						character={character}
+						key={character.id}
+						displayUser={this.props.displayUser}
+					/>
+				);
 			}
 		});
 

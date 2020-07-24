@@ -68,6 +68,7 @@ class DashboardCharacters extends Component {
 							characters={this.props.characters}
 							canEdit={true}
 							deleteAction={this.props.deleteCharacter}
+							displayUser={false}
 						/>
 					</div>
 				);

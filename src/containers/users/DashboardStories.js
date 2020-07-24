@@ -22,6 +22,7 @@ class DashboardStories extends Component {
 						stories={this.props.stories}
 						canEdit={true}
 						deleteAction={this.props.deleteStory}
+						displayUser={false}
 					/>
 				</div>
 			);

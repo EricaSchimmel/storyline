@@ -52,13 +52,23 @@ class RecentlyCreatedSection extends Component {
 		return (
 			<div>
 				{this.renderStoryHeader()}
-				<StoryList stories={this.props.stories} />
+				<StoryList
+					stories={this.props.stories}
+					displayUser={this.props.displayUser}
+				/>
 
 				{this.renderCharacterHeader()}
-				<CharacterList characters={this.props.characters} />
+				<CharacterList
+					characters={this.props.characters}
+					displayUser={this.props.displayUser}
+				/>
 			</div>
 		);
 	}
 }
 
 export default RecentlyCreatedSection;
+
+RecentlyCreatedSection.defaultProps = {
+	displayUser: true,
+};

@@ -10,14 +10,24 @@ class StoryList extends Component {
 			if (this.props.canEdit) {
 				return (
 					<>
-						<StoryCard story={story} key={story.id} />
+						<StoryCard
+							story={story}
+							key={story.id}
+							displayUser={this.props.displayUser}
+						/>
 
 						<EditBtn objType="story" objId={story.id} />
 						<DeleteBtn element={story} delete={this.props.deleteAction} />
 					</>
 				);
 			} else {
-				return <StoryCard story={story} key={story.id} />;
+				return (
+					<StoryCard
+						story={story}
+						key={story.id}
+						displayUser={this.props.displayUser}
+					/>
+				);
 			}
 		});
 
