@@ -9,6 +9,7 @@ import SignUpContainer from "./containers/users/SignUpContainer";
 
 import Dashboard from "./containers/users/Dashboard";
 import DashboardStories from "./containers/users/DashboardStories";
+import DashboardCharacters from "./containers/users/DashboardCharacters";
 
 import ShowStory from "./containers/stories/ShowStory";
 import EditStory from "./containers/stories/EditStory";
@@ -33,6 +34,11 @@ class App extends Component {
 					{/* User Pages */}
 					<Route exact path="/dashboard" component={Dashboard} />
 					<Route exact path="/dashboard/stories" component={DashboardStories} />
+					<Route
+						exact
+						path="/dashboard/characters"
+						component={DashboardCharacters}
+					/>
 					{/* <Route path="/users/:id" component={} /> */}
 					{/* <Route path="/users/:id/stories" component={} /> */}
 					{/* <Route path="/users/:id/characters" component={} /> */}

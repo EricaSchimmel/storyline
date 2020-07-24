@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import history from "../../modules/history";
 
 class StorySelect extends Component {
 	constructor(props) {
@@ -14,18 +15,24 @@ class StorySelect extends Component {
 		});
 	};
 
-	// handleOnSubmit = () => {};
+	handleOnSubmit = () => {
+		history.push(`/stories/${this.state.storyId}/${this.props.objType}/new`);
+	};
 
 	render() {
 		let options = this.props.stories.map(story => {
-			return <option value={story.id}>{story.title}</option>;
+			return (
+				<option key={story.id} value={story.id}>
+					{story.title}
+				</option>
+			);
 		});
 
 		return (
 			<div>
-				<form>
-					<label for="stories">Select a story:</label>
-					<select id="stories">{options}</select>
+				<form onSubmit={this.handleOnSubmit}>
+					<label>Select a story:</label>
+					<select>{options}</select>
 
 					<input type="submit" value="Add" />
 				</form>

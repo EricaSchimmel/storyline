@@ -39,7 +39,7 @@ class CharacterInput extends Component {
 		};
 
 		if (this.props.actionType === "new") {
-			this.props.action(this.props.objId, "characters", character).then(res => {
+			this.props.action(character, this.props.storyId).then(res => {
 				if (res.data.errors) {
 					this.setState({
 						errors: res.data.errors,
@@ -49,7 +49,7 @@ class CharacterInput extends Component {
 				}
 			});
 		} else if (this.props.actionType === "edit") {
-			this.props.action("characters", this.props.objId, character).then(res => {
+			this.props.action(character, this.props.characterId).then(res => {
 				if (res.data.errors) {
 					this.setState({ errors: res.data.errors });
 				} else {
