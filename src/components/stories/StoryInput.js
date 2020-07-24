@@ -3,8 +3,6 @@ import Errors from "../errors/Errors";
 
 import history from "../../modules/history";
 
-// TODO: Add in action prop for edit or add
-
 class StoryInput extends Component {
 	constructor(props) {
 		super(props);

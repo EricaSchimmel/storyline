@@ -49,7 +49,7 @@ class CharacterInput extends Component {
 				}
 			});
 		} else if (this.props.actionType === "edit") {
-			this.props.action(character, this.props.characterId).then(res => {
+			this.props.action(character, this.props.character.id).then(res => {
 				if (res.data.errors) {
 					this.setState({ errors: res.data.errors });
 				} else {

@@ -17,6 +17,7 @@ import NewStory from "./containers/stories/NewStory";
 
 import ShowCharacter from "./containers/characters/ShowCharacter";
 import NewCharacter from "./containers/characters/NewCharacter";
+import EditCharacter from "./containers/characters/EditCharacter";
 
 import { Router, Route, Switch } from "react-router-dom";
 import history from "./modules/history";
@@ -55,8 +56,13 @@ class App extends Component {
 					<Route path="/stories/:id" component={ShowStory} />
 
 					{/* Characters */}
-					<Route path="/characters/:id" component={ShowCharacter} />
-					{/* <Route path="/characters/:id/edit" component={} /> */}
+					<Route
+						exact
+						strict
+						path="/characters/:id/edit"
+						component={EditCharacter}
+					/>
+					<Route strict path="/characters/:id" component={ShowCharacter} />
 				</Switch>
 			</Router>
 		);

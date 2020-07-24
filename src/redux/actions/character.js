@@ -76,3 +76,11 @@ export const postCharacter = (character, storyId) => {
 		});
 	};
 };
+
+export const patchCharacter = (character, characterId) => {
+	return dispatch => {
+		return axios.patch(`/characters/${characterId}`, character).then(res => {
+			return res;
+		});
+	};
+};
