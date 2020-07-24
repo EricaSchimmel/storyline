@@ -29,7 +29,7 @@ class CharacterInput extends Component {
 
 		const { name, age, gender, species, overview, personality } = this.state;
 
-		character = {
+		let character = {
 			name,
 			age,
 			gender,
@@ -62,6 +62,8 @@ class CharacterInput extends Component {
 	render() {
 		return (
 			<div>
+				<Errors errors={this.state.errors} />
+
 				<form onSubmit={this.handleOnSubmit}>
 					<label>Name</label>
 					<br />
@@ -94,10 +96,23 @@ class CharacterInput extends Component {
 						name="gender"
 						id="gender"
 					>
-						<option value="Male">Male</option>
+						<option value="Male" defaultValue>
+							Male
+						</option>
 						<option value="Female">Female</option>
 						<option value="Other">Other</option>
 					</select>
+					<br />
+
+					<label>Species</label>
+					<br />
+					<input
+						type="text"
+						id="species"
+						name="species"
+						onChange={this.handleOnChange}
+						value={this.state.species}
+					/>
 					<br />
 
 					<label>Personality</label>
@@ -120,7 +135,7 @@ class CharacterInput extends Component {
 					/>
 					<br />
 
-					<input type="submit" value="Add Character" />
+					<input type="submit" value="Submit Character" />
 				</form>
 			</div>
 		);
@@ -130,6 +145,8 @@ class CharacterInput extends Component {
 export default CharacterInput;
 
 CharacterInput.defaultProps = {
+	actionType: "new",
+
 	character: {
 		name: "",
 		age: 0,

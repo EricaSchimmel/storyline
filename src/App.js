@@ -13,10 +13,10 @@ import DashboardCharacters from "./containers/users/DashboardCharacters";
 
 import ShowStory from "./containers/stories/ShowStory";
 import EditStory from "./containers/stories/EditStory";
+import NewStory from "./containers/stories/NewStory";
 
 import ShowCharacter from "./containers/characters/ShowCharacter";
-
-import NewStory from "./containers/stories/NewStory";
+import NewCharacter from "./containers/characters/NewCharacter";
 
 import { Router, Route, Switch } from "react-router-dom";
 import history from "./modules/history";
@@ -46,11 +46,16 @@ class App extends Component {
 					{/* Stories */}
 					<Route strict path="/stories/new" component={NewStory} />
 					<Route path="/stories/:id/edit" component={EditStory} />
+					<Route
+						exact
+						strict
+						path="/stories/:storyId/characters/new"
+						component={NewCharacter}
+					/>
 					<Route path="/stories/:id" component={ShowStory} />
 
 					{/* Characters */}
 					<Route path="/characters/:id" component={ShowCharacter} />
-					{/* <Route path="/stories/:story_id/characters/new" component={} /> */}
 					{/* <Route path="/characters/:id/edit" component={} /> */}
 				</Switch>
 			</Router>

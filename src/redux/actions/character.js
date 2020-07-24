@@ -68,3 +68,11 @@ export const deleteCharacter = character => {
 		});
 	};
 };
+
+export const postCharacter = (character, storyId) => {
+	return dispatch => {
+		return axios.post(`/stories/${storyId}/characters`, character).then(res => {
+			return res;
+		});
+	};
+};
