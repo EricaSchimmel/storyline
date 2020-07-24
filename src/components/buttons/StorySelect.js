@@ -15,8 +15,12 @@ class StorySelect extends Component {
 		});
 	};
 
-	handleOnSubmit = () => {
-		history.push(`/stories/${this.state.storyId}/${this.props.objType}/new`);
+	handleOnSubmit = event => {
+		event.preventDefault();
+
+		if (this.state.storyId !== -1) {
+			history.push(`/stories/${this.state.storyId}/${this.props.objType}/new`);
+		}
 	};
 
 	render() {
@@ -32,7 +36,12 @@ class StorySelect extends Component {
 			<div>
 				<form onSubmit={this.handleOnSubmit}>
 					<label>Select a story:</label>
-					<select>{options}</select>
+					<select onChange={this.handleOnChange}>
+						<option value={-1} defaultValue>
+							----
+						</option>
+						{options}
+					</select>
 
 					<input type="submit" value="Add" />
 				</form>
