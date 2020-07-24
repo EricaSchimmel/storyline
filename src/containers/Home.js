@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-import StoryList from "../components/stories/StoryList";
-import CharacterList from "../components/characters/CharacterList";
+import RecentlyCreatedSection from "../components/RecentlyCreatedSection";
 
 import { fetchRecentlyCreatedStories } from "../redux/actions/story";
 import { fetchRecentlyCreatedCharacters } from "../redux/actions/character";
@@ -23,11 +22,10 @@ class Home extends Component {
 		} else {
 			return (
 				<div>
-					<h1>Recently Posted Stories</h1>
-					<StoryList stories={this.props.stories} />
-
-					<h1>Recently Created Characters</h1>
-					<CharacterList characters={this.props.characters} />
+					<RecentlyCreatedSection
+						stories={this.props.stories}
+						characters={this.props.characters}
+					/>
 				</div>
 			);
 		}
