@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 
 class EditStory extends Component {
 	componentDidMount() {
+		requireLogin(this.props.currentUser);
 		let { match } = this.props;
 		let storyId = match.params.id;
 		this.props.fetchStory(storyId);
@@ -27,8 +28,6 @@ class EditStory extends Component {
 		} else {
 			return (
 				<div>
-					{requireLogin(this.props.currentUser)}
-
 					<h1>Editing {this.props.story.title}</h1>
 					<StoryInput
 						actionType="edit"
