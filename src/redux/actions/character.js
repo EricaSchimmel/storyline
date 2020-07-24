@@ -46,11 +46,17 @@ export const fetchUserCharacters = userId => {
 	};
 };
 
-export const fetchRecentlyCreatedCharacters = () => {
+export const fetchRecentlyCreatedCharacters = (userId = false) => {
 	return dispatch => {
 		dispatch({ type: "LOADING_CHARACTERS" });
 
-		return axios.get("/recently_created_characters").then(data => {
+		let url = "/recently_created_characters";
+
+		if (userId) {
+			url = `/users/${userId}/recently_created_characters`;
+		}
+
+		return axios.get(url).then(data => {
 			dispatch(addCharacters(data.data));
 			return data;
 		});

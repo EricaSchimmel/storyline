@@ -47,11 +47,17 @@ export const fetchStory = storyId => {
 	};
 };
 
-export const fetchRecentlyCreatedStories = () => {
+export const fetchRecentlyCreatedStories = (userId = false) => {
 	return dispatch => {
 		dispatch({ type: "LOADING_STORIES" });
 
-		return axios.get("/recently_created_stories").then(data => {
+		let url = "/recently_created_stories";
+
+		if (userId) {
+			url = `/users/${userId}/recently_created_stories`;
+		}
+
+		return axios.get(url).then(data => {
 			dispatch(addStories(data.data));
 			return data;
 		});
