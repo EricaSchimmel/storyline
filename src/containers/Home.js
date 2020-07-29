@@ -25,6 +25,7 @@ class Home extends Component {
 					<RecentlyCreatedSection
 						stories={this.props.stories}
 						characters={this.props.characters}
+						isHomepage={true}
 					/>
 				</div>
 			);

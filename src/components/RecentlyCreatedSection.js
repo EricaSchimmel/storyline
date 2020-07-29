@@ -52,6 +52,15 @@ class RecentlyCreatedSection extends Component {
 					/>
 				</>
 			);
+		} else if (this.props.stories.length === 0 && this.props.isHomepage) {
+			return (
+				<>
+					<h2>
+						There are no newly created, stories. To see all stories,{" "}
+						<Link to={`/stories`}>click here</Link>.
+					</h2>
+				</>
+			);
 		} else {
 			return (
 				<>
@@ -69,6 +78,15 @@ class RecentlyCreatedSection extends Component {
 						characters={this.props.characters}
 						displayUser={this.props.displayUser}
 					/>
+				</>
+			);
+		} else if (this.props.characters.length === 0 && this.props.isHomepage) {
+			return (
+				<>
+					<h2>
+						There are no newly created, characters. To see all characters,{" "}
+						<Link to={`/characters`}>click here</Link>.
+					</h2>
 				</>
 			);
 		} else {
@@ -97,4 +115,5 @@ export default RecentlyCreatedSection;
 
 RecentlyCreatedSection.defaultProps = {
 	displayUser: true,
+	isHomepage: false,
 };
