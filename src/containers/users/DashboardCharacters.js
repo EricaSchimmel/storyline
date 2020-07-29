@@ -7,9 +7,9 @@ import { requireLogin } from "../../helpers/componentHelpers";
 
 import { Link } from "react-router-dom";
 
-import { fetchUserStories } from "../../redux/actions/story";
+import { fetchStories } from "../../redux/actions/story";
 import {
-	fetchUserCharacters,
+	fetchCharacters,
 	deleteCharacter,
 } from "../../redux/actions/character";
 import { connect } from "react-redux";
@@ -17,8 +17,8 @@ import { connect } from "react-redux";
 class DashboardCharacters extends Component {
 	componentDidMount() {
 		requireLogin(this.props.currentUser);
-		this.props.fetchUserCharacters(this.props.currentUser.user.id);
-		this.props.fetchUserStories(this.props.currentUser.user);
+		this.props.fetchCharacters(this.props.currentUser.user.id);
+		this.props.fetchStories(this.props.currentUser.user.id);
 	}
 
 	render() {
@@ -85,7 +85,7 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-	fetchUserCharacters,
-	fetchUserStories,
+	fetchCharacters,
+	fetchStories,
 	deleteCharacter,
 })(DashboardCharacters);

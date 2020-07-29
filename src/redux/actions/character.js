@@ -13,11 +13,17 @@ export const removeCharacter = data => {
 	return { type: "REMOVE_CHARACTER", data };
 };
 
-export const fetchIndexCharacters = () => {
+export const fetchCharacters = (userId = -1) => {
 	return dispatch => {
 		dispatch({ type: "LOADING_CHARACTERS" });
 
-		return axios.get("/characters").then(data => {
+		let url = "/characters";
+
+		if (userId !== -1) {
+			url = `/users/${userId}/characters`;
+		}
+
+		return axios.get(url).then(data => {
 			dispatch(addCharacters(data.data));
 			return data;
 		});
@@ -30,17 +36,6 @@ export const fetchCharacter = characterId => {
 
 		return axios.get(`/characters/${characterId}`).then(data => {
 			dispatch(addCharacter(data.data));
-			return data;
-		});
-	};
-};
-
-export const fetchUserCharacters = userId => {
-	return dispatch => {
-		dispatch({ type: "LOADING_CHARACTERS" });
-
-		return axios.get(`/users/${userId}/characters`).then(data => {
-			dispatch(addCharacters(data.data));
 			return data;
 		});
 	};

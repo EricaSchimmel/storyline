@@ -2,8 +2,6 @@ import React, { Component } from "react";
 
 import RecentlyCreatedSection from "../../components/RecentlyCreatedSection";
 
-import { redirectToDashBoardOnMatchingCurrentUser } from "../../helpers/componentHelpers";
-
 import { fetchUser } from "../../redux/actions/user";
 import { fetchRecentlyCreatedStories } from "../../redux/actions/story";
 import { fetchRecentlyCreatedCharacters } from "../../redux/actions/character";
@@ -13,11 +11,6 @@ class ShowUser extends Component {
 	componentDidMount() {
 		let { match } = this.props;
 		let userId = match.params.id;
-
-		redirectToDashBoardOnMatchingCurrentUser(
-			this.props.currentUser.user,
-			userId
-		);
 
 		this.props.fetchUser(userId);
 		this.props.fetchRecentlyCreatedCharacters(userId);

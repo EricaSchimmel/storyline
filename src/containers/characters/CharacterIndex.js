@@ -2,12 +2,12 @@ import React, { Component } from "react";
 
 import CharacterList from "../../components/characters/CharacterList";
 
-import { fetchIndexCharacters } from "../../redux/actions/character";
+import { fetchCharacters } from "../../redux/actions/character";
 import { connect } from "react-redux";
 
 class CharacterIndex extends Component {
 	componentDidMount() {
-		this.props.fetchIndexCharacters();
+		this.props.fetchCharacters();
 	}
 
 	render() {
@@ -35,6 +35,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { fetchIndexCharacters })(
-	CharacterIndex
-);
+export default connect(mapStateToProps, { fetchCharacters })(CharacterIndex);
