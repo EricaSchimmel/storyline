@@ -3,10 +3,14 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import manageUser from "./manageUser";
+import viewedUser from "./viewedUser";
+
 import manageStory from "./manageStory";
-import manageCharacter from "./manageCharacter";
 import viewedStory from "./viewedStory";
+
+import manageCharacter from "./manageCharacter";
 import viewedCharacter from "./viewedCharacter";
+
 import manageComments from "./manageComments";
 
 const persistConfig = {
@@ -22,6 +26,7 @@ const rootReducer = combineReducers({
 	viewedStory,
 	viewedCharacter,
 	commentIndex: manageComments,
+	viewedUser,
 });
 
 export default persistReducer(persistConfig, rootReducer);

@@ -47,13 +47,13 @@ export const fetchStory = storyId => {
 	};
 };
 
-export const fetchRecentlyCreatedStories = (userId = false) => {
+export const fetchRecentlyCreatedStories = (userId = -1) => {
 	return dispatch => {
 		dispatch({ type: "LOADING_STORIES" });
 
 		let url = "/recently_created_stories";
 
-		if (userId) {
+		if (userId !== -1) {
 			url = `/users/${userId}/recently_created_stories`;
 		}
 

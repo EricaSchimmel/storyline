@@ -5,6 +5,10 @@ export const setUser = data => {
 	return { type: "SET_USER", data };
 };
 
+export const addUser = data => {
+	return { type: "ADD_USER", data };
+};
+
 export const login = state => {
 	return dispatch => {
 		return axios.post("/login", state).then(res => {
@@ -31,6 +35,17 @@ export const logout = () => {
 	return dispatch => {
 		return axios.delete("/logout").then(() => {
 			dispatch({ type: "LOGOUT" });
+		});
+	};
+};
+
+export const fetchUser = userId => {
+	return dispatch => {
+		dispatch({ type: "LOADING_USER" });
+
+		return axios.get(`/users/${userId}`).then(res => {
+			dispatch(addUser(res.data));
+			return res;
 		});
 	};
 };

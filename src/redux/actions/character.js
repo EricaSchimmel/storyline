@@ -46,13 +46,13 @@ export const fetchUserCharacters = userId => {
 	};
 };
 
-export const fetchRecentlyCreatedCharacters = (userId = false) => {
+export const fetchRecentlyCreatedCharacters = (userId = -1) => {
 	return dispatch => {
 		dispatch({ type: "LOADING_CHARACTERS" });
 
 		let url = "/recently_created_characters";
 
-		if (userId) {
+		if (userId !== -1) {
 			url = `/users/${userId}/recently_created_characters`;
 		}
 

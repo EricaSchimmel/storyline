@@ -59,8 +59,6 @@ class DashboardCharacters extends Component {
 			default:
 				return (
 					<div>
-						{requireLogin(this.props.currentUser)}
-
 						<h1>Your Characters</h1>
 						<StorySelect stories={this.props.stories} objType="characters" />
 

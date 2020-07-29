@@ -11,3 +11,12 @@ export const redirectToHomeWhenLoggedIn = userState => {
 		return history.push("/");
 	}
 };
+
+export const redirectToDashBoardOnMatchingCurrentUser = (
+	currentUser,
+	userId
+) => {
+	if (currentUser.id === userId) {
+		return history.push("/dashboard");
+	}
+};
