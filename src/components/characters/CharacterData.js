@@ -37,7 +37,10 @@ class CharacterData extends Component {
 						<Link to={`/stories/${this.props.story.id}`}>
 							{this.props.story.title}
 						</Link>
-						, created by: {this.props.user.username}
+						, created by:{" "}
+						<Link to={`/users/${this.props.user.id}`}>
+							{this.props.user.username}
+						</Link>
 					</h2>
 
 					<h3>Character Details</h3>

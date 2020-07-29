@@ -18,7 +18,12 @@ const StoryCard = props => {
 				<h2>
 					<Link to={`/stories/${props.story.id}`}>{props.story.title}</Link>
 				</h2>
-				<h3>Created By: {props.story.user.username}</h3>
+				<h3>
+					Created By:{" "}
+					<Link to={`/users/${props.story.user.id}`}>
+						{props.story.user.username}
+					</Link>
+				</h3>
 			</div>
 		);
 	}

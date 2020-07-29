@@ -36,7 +36,9 @@ const CharacterCard = props => {
 						{props.character.story.title}
 					</Link>
 					, By:
-					{props.character.user.username}
+					<Link to={`/users/${props.character.user.id}`}>
+						{props.character.user.username}
+					</Link>
 				</h3>
 			</div>
 		);
