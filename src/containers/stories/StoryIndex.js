@@ -2,12 +2,12 @@ import React, { Component } from "react";
 
 import StoryList from "../../components/stories/StoryList";
 
-import { fetchIndexStories } from "../../redux/actions/story";
+import { fetchStories } from "../../redux/actions/story";
 import { connect } from "react-redux";
 
 class StoryIndex extends Component {
 	componentDidMount() {
-		this.props.fetchIndexStories();
+		this.props.fetchStories();
 	}
 
 	render() {
@@ -35,4 +35,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { fetchIndexStories })(StoryIndex);
+export default connect(mapStateToProps, { fetchStories })(StoryIndex);

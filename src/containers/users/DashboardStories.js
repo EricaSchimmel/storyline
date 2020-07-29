@@ -5,13 +5,13 @@ import NewBtn from "../../components/buttons/NewBtn";
 
 import { requireLogin } from "../../helpers/componentHelpers";
 
-import { fetchUserStories, deleteStory } from "../../redux/actions/story";
+import { fetchStories, deleteStory } from "../../redux/actions/story";
 import { connect } from "react-redux";
 
 class DashboardStories extends Component {
 	componentDidMount() {
 		requireLogin(this.props.currentUser);
-		this.props.fetchUserStories(this.props.currentUser.user);
+		this.props.fetchStories(this.props.currentUser.user.id);
 	}
 
 	renderStories = () => {
@@ -65,6 +65,6 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { fetchUserStories, deleteStory })(
+export default connect(mapStateToProps, { fetchStories, deleteStory })(
 	DashboardStories
 );

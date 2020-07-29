@@ -14,22 +14,17 @@ export const removeStory = data => {
 	return { type: "REMOVE_STORY", data };
 };
 
-export const fetchIndexStories = () => {
+export const fetchStories = (userId = -1) => {
 	return dispatch => {
 		dispatch({ type: "LOADING_STORIES" });
 
-		return axios.get("/stories").then(data => {
-			dispatch(addStories(data.data));
-			return data;
-		});
-	};
-};
+		let url = "/stories";
 
-export const fetchUserStories = user => {
-	return dispatch => {
-		dispatch({ type: "LOADING_STORIES" });
+		if (userId !== -1) {
+			url = `/users/${userId}/stories`;
+		}
 
-		return axios.get(`/users/${user.id}/stories`).then(data => {
+		return axios.get(url).then(data => {
 			dispatch(addStories(data.data));
 			return data;
 		});
