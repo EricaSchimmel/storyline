@@ -7,42 +7,74 @@ import { Link } from "react-router-dom";
 
 class RecentlyCreatedSection extends Component {
 	renderStoryHeader = () => {
-		if (this.props.userId) {
+		let seeMoreLink = "";
+
+		if (this.props.userId && this.props.stories.length !== 0) {
+			seeMoreLink = (
+				<Link to={`/users/${this.props.userId}/stories`}>See More</Link>
+			);
+		} else if (this.props.stories.length !== 0) {
+			seeMoreLink = <Link to={`/stories`}>See More</Link>;
+		}
+
+		return (
+			<>
+				<h2>Recently Created Stories {seeMoreLink}</h2>
+			</>
+		);
+	};
+
+	renderCharacterHeader = () => {
+		let seeMoreLink = "";
+
+		if (this.props.userId && this.props.characters.length !== 0) {
+			seeMoreLink = (
+				<Link to={`/users/${this.props.userId}/characters`}>See More</Link>
+			);
+		} else if (this.props.characters.length !== 0) {
+			seeMoreLink = <Link to={`/characters`}>See More</Link>;
+		}
+
+		return (
+			<>
+				<h2>Recently Created Characters {seeMoreLink}</h2>
+			</>
+		);
+	};
+
+	renderStories = () => {
+		if (this.props.stories.length !== 0) {
 			return (
 				<>
-					<h2>
-						Recently Created Stories{" "}
-						<Link to={`/users/${this.props.userId}/stories`}>See More</Link>
-					</h2>
+					<StoryList
+						stories={this.props.stories}
+						displayUser={this.props.displayUser}
+					/>
 				</>
 			);
 		} else {
 			return (
 				<>
-					<h2>
-						Recently Created Stories <Link to={`/stories`}>See More</Link>
-					</h2>
+					<h2>There are no newly created stories at this time.</h2>
 				</>
 			);
 		}
 	};
 
-	renderCharacterHeader = () => {
-		if (this.props.userId) {
+	renderCharacters = () => {
+		if (this.props.characters.length !== 0) {
 			return (
 				<>
-					<h2>
-						Recently Created Characters{" "}
-						<Link to={`/users/${this.props.userId}/characters`}>See More</Link>
-					</h2>
+					<CharacterList
+						characters={this.props.characters}
+						displayUser={this.props.displayUser}
+					/>
 				</>
 			);
 		} else {
 			return (
 				<>
-					<h2>
-						Recently Created Characters <Link to={"/characters"}>See More</Link>
-					</h2>
+					<h2>There are no newly created characters at this time.</h2>
 				</>
 			);
 		}
@@ -52,16 +84,10 @@ class RecentlyCreatedSection extends Component {
 		return (
 			<div>
 				{this.renderStoryHeader()}
-				<StoryList
-					stories={this.props.stories}
-					displayUser={this.props.displayUser}
-				/>
+				{this.renderStories()}
 
 				{this.renderCharacterHeader()}
-				<CharacterList
-					characters={this.props.characters}
-					displayUser={this.props.displayUser}
-				/>
+				{this.renderCharacters()}
 			</div>
 		);
 	}
