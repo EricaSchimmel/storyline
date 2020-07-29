@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 
 import CharacterData from "../../components/characters/CharacterData";
-import CommentList from "../../components/comments/CommentList";
-import CommentInput from "../../components/comments/CommentInput";
+import CommentSection from "../../components/comments/CommentSection";
 import NotFound from "../../components/errors/NotFound";
 
 import { fetchCharacter } from "../../redux/actions/character";
@@ -41,14 +40,14 @@ class ShowCharacter extends Component {
 					/>
 
 					<h4>Comments</h4>
-					<CommentInput
+					<CommentSection
 						currentUser={this.props.currentUser}
 						canComment={this.props.canComment}
 						postComment={this.props.postComment}
 						objType={"characters"}
 						objId={this.props.character.id}
+						comments={this.props.comments}
 					/>
-					<CommentList comments={this.props.comments} />
 				</div>
 			);
 		}

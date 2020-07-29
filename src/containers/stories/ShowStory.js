@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 
 import StoryData from "../../components/stories/StoryData";
-import CommentList from "../../components/comments/CommentList";
-import CommentInput from "../../components/comments/CommentInput";
+import CommentSection from "../../components/comments/CommentSection";
 import CharacterNameList from "../../components/characters/CharacterNameList";
 import NotFound from "../../components/errors/NotFound";
 import NewBtn from "../../components/buttons/NewBtn";
@@ -63,14 +62,15 @@ class ShowStory extends Component {
 					/>
 
 					<h4>Comments</h4>
-					<CommentInput
+
+					<CommentSection
 						currentUser={this.props.currentUser}
 						canComment={this.props.canComment}
 						postComment={this.props.postComment}
 						objType={"stories"}
 						objId={this.props.story.id}
+						comments={this.props.comments}
 					/>
-					<CommentList comments={this.props.comments} />
 				</div>
 			);
 		}
