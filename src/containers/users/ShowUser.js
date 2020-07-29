@@ -45,7 +45,6 @@ class ShowUser extends Component {
 
 const mapStateToProps = state => {
 	return {
-		currentUser: state.currentUser,
 		viewedUser: state.viewedUser.user,
 		stories: state.storyIndex.stories,
 		characters: state.characterIndex.characters,

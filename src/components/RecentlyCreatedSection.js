@@ -9,7 +9,7 @@ class RecentlyCreatedSection extends Component {
 	renderStoryHeader = () => {
 		let seeMoreLink = "";
 
-		if (this.props.userId && this.props.stories.length !== 0) {
+		if (this.props.userId) {
 			seeMoreLink = (
 				<Link to={`/users/${this.props.userId}/stories`}>See More</Link>
 			);
@@ -27,7 +27,7 @@ class RecentlyCreatedSection extends Component {
 	renderCharacterHeader = () => {
 		let seeMoreLink = "";
 
-		if (this.props.userId && this.props.characters.length !== 0) {
+		if (this.props.userId) {
 			seeMoreLink = (
 				<Link to={`/users/${this.props.userId}/characters`}>See More</Link>
 			);
@@ -56,7 +56,7 @@ class RecentlyCreatedSection extends Component {
 			return (
 				<>
 					<h2>
-						There are no newly created, stories. To see all stories,{" "}
+						There are no newly created stories at this time. To see all stories,{" "}
 						<Link to={`/stories`}>click here</Link>.
 					</h2>
 				</>
@@ -84,8 +84,8 @@ class RecentlyCreatedSection extends Component {
 			return (
 				<>
 					<h2>
-						There are no newly created, characters. To see all characters,{" "}
-						<Link to={`/characters`}>click here</Link>.
+						There are no newly created characters at this time. To see all
+						characters, <Link to={`/characters`}>click here</Link>.
 					</h2>
 				</>
 			);
