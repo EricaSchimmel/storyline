@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class CommentInput extends Component {
 	constructor(props) {
@@ -45,7 +46,9 @@ class CommentInput extends Component {
 		} else if (!this.props.currentUser.loggedIn) {
 			return (
 				<div>
-					<p>You must be logged in to leave a comment.</p>
+					<p>
+						You must be <Link to={"/login"}>logged in</Link> to leave a comment.
+					</p>
 				</div>
 			);
 		} else {
