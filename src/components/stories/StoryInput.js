@@ -12,6 +12,8 @@ class StoryInput extends Component {
 			summary: props.story.summary,
 			errors: [],
 		};
+
+		// this.handleOnChange = this.handleOnChange.bind(this)
 	}
 
 	handleOnChange = event => {
